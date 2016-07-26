@@ -213,7 +213,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
         if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading Sun / Oracle 1.4.x / 1.5.x / 1.6.x / 1.7.x / 1.8.x format...");
 
         try (LineNumberReader in = this.in) {
-            GCModel model = new GCModel();
+            GCModel model = createGCModel();
             model.setFormat(GCModel.Format.SUN_X_LOG_GC);
             Matcher mixedLineMatcher = linesMixedPattern.matcher("");
             Matcher adaptiveSizePolicyMatcher = adaptiveSizePolicyPattern.matcher("");

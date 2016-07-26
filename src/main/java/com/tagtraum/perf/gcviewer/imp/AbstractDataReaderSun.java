@@ -18,6 +18,7 @@ import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.ExtendedType;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.GcPattern;
 import com.tagtraum.perf.gcviewer.model.GCEvent;
+import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.model.GCResource;
 import com.tagtraum.perf.gcviewer.util.NumberParser;
 import com.tagtraum.perf.gcviewer.util.ParseInformation;
@@ -66,6 +67,10 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
     protected AbstractDataReaderSun(GCResource gcResource, InputStream in, GcLogType gcLogType) throws UnsupportedEncodingException {
         super(gcResource, in);
         this.gcLogType = gcLogType;
+    }
+
+    protected GCModel createGCModel() {
+        return new GCModel();
     }
 
     /**
