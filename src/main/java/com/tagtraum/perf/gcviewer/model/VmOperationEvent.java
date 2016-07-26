@@ -20,4 +20,8 @@ public class VmOperationEvent extends AbstractGCEvent<VmOperationEvent> {
         sb.append(" secs]");
     }
 
+    @Override
+    public boolean isVmEvent() {
+        return true;
+    }
 }

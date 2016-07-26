@@ -228,7 +228,7 @@ public class TestDataReaderSun1_7_0 {
         GCModel model = reader.read();
 
         assertThat("GC count", model.size(), is(2));
-        Iterator<GCEvent> eventIterator = model.getGCEvents();
+        Iterator<GCEvent> eventIterator = model.getGCEvents().iterator();
         GCEvent event1 = eventIterator.next();
         GCEvent event2 = eventIterator.next();
         assertThat("type name [1]", event1.getTypeAsString(), equalTo("GC; ParNew"));

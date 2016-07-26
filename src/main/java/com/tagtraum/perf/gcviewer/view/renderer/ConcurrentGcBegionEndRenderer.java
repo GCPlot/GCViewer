@@ -34,8 +34,7 @@ public class ConcurrentGcBegionEndRenderer extends ChartRenderer {
         final int height = getHeight();
         int lastScaledTimestampBegin = Integer.MIN_VALUE;
         int lastScaledTimestampEnd = Integer.MIN_VALUE;
-        for (Iterator<ConcurrentGCEvent> i = getModelChart().getModel().getConcurrentGCEvents(); i.hasNext();) {
-            final ConcurrentGCEvent event = i.next();
+        for (final ConcurrentGCEvent event : getModelChart().getModel().getConcurrentGCEvents()) {
             if (event.isConcurrentCollectionStart()) {
                 final int scaledTimestamp = (int) (scaleFactor * (event.getTimestamp() - getModelChart().getModel().getFirstPauseTimeStamp()));
                 if (scaledTimestamp != lastScaledTimestampBegin) {

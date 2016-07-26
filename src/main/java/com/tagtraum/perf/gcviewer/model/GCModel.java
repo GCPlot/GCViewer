@@ -11,11 +11,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -286,62 +282,31 @@ public class GCModel implements Serializable {
         }
     }
 
-    /**
-     * Returns an iterator to all stop the world events (everything that stops the vm to perfom
-     * its action - includes vm operations of present).
-     *
-     * @return iterator to all stop the world events
-     */
-    public Iterator<AbstractGCEvent<?>> getStopTheWorldEvents() {
-        return stopTheWorldEvents.iterator();
+    public List<AbstractGCEvent<?>> getSTWEvents() {
+        return Collections.unmodifiableList(stopTheWorldEvents);
     }
 
-    /**
-     * Returns an iterator to all garbage collection events (without full gcs / vm operations).
-     *
-     * @return iterator to all gc events (without full gcs).
-     */
-    public Iterator<GCEvent> getGCEvents() {
-        return gcEvents.iterator();
+    public List<GCEvent> getGCEvents() {
+        return Collections.unmodifiableList(gcEvents);
     }
 
-    /**
-     * Returns an iterator to all vm operation events.
-     *
-     * @return iterator to all vm operation events
-     */
-    public Iterator<AbstractGCEvent<?>> getVmOperationsEvents() {
-        return vmOperationEvents.iterator();
+    public List<AbstractGCEvent<?>> getVmOperationEvents() {
+        return Collections.unmodifiableList(vmOperationEvents);
     }
 
-    /**
-     * Returns an iterator to all concurrent gc events.
-     *
-     * @return iterator to all concurrent gc events.
-     */
-    public Iterator<ConcurrentGCEvent> getConcurrentGCEvents() {
-        return concurrentGCEvents.iterator();
+    public List<ConcurrentGCEvent> getConcurrentGCEvents() {
+        return Collections.unmodifiableList(concurrentGCEvents);
     }
 
-    /**
-     * Returns an iterator to all events in the order they were added to the model.
-     *
-     * @return iterator to all events
-     */
-    public Iterator<AbstractGCEvent<?>> getEvents() {
-        return allEvents.iterator();
+    public List<AbstractGCEvent<?>> getAllEvents() {
+        return Collections.unmodifiableList(allEvents);
     }
 
-    /**
-     * Returns an iterator to all full gc events.
-     *
-     * @return iterator to all full gc events
-     */
-    public Iterator<GCEvent> getFullGCEvents() {
-        return fullGCEvents.iterator();
+    public List<GCEvent> getFullGCEvents() {
+        return Collections.unmodifiableList(fullGCEvents);
     }
 
-    private DoubleData getDoubleData(String key, Map<String, DoubleData> eventMap) {
+    protected DoubleData getDoubleData(String key, Map<String, DoubleData> eventMap) {
         DoubleData data = eventMap.get(key);
         if (data == null) {
             data = new DoubleData();
@@ -455,14 +420,14 @@ public class GCModel implements Serializable {
         }
     }
 
-    private void makeSureHasTimeStamp(AbstractGCEvent<?> abstractEvent) {
+    protected void makeSureHasTimeStamp(AbstractGCEvent<?> abstractEvent) {
         if (size() >= 1 && abstractEvent.getTimestamp() < 0.000001 && abstractEvent.getDatestamp() != null) {
             // looks like there is no timestamp set -> set one, because a lot depends on the timestamps
             abstractEvent.setTimestamp(ChronoUnit.MILLIS.between(getFirstDateStamp(), abstractEvent.getDatestamp()) / 1000.0);
         }
     }
 
-    private void updatePostConcurrentCycleUsedSizes(GCEvent event) {
+    protected void updatePostConcurrentCycleUsedSizes(GCEvent event) {
         // Most interesting is the size of the life objects immediately after a concurrent cycle.
         // Since the "concurrent-end" events don't have the heap size information, the next event
         // after is taken to get the information. Young generation, that has already filled up
@@ -476,7 +441,7 @@ public class GCModel implements Serializable {
         postConcurrentCycleUsedHeapSizes.add(event.getPreUsed());
     }
 
-    private void adjustPause(VmOperationEvent vmOpEvent) {
+    protected void adjustPause(VmOperationEvent vmOpEvent) {
         if (stopTheWorldEvents.size() > 1) {
             AbstractGCEvent<?> previousEvent = stopTheWorldEvents.get(stopTheWorldEvents.size() - 2);
 
@@ -508,7 +473,7 @@ public class GCModel implements Serializable {
      * @param previousEvent event just before <code>vmOpEvent</code>
      * @param vmOpEvent event to be adjusted
      */
-    private void adjustTimeStamp(AbstractGCEvent<?> previousEvent, VmOperationEvent vmOpEvent) {
+    protected void adjustTimeStamp(AbstractGCEvent<?> previousEvent, VmOperationEvent vmOpEvent) {
         if (previousEvent.getTimestamp() + previousEvent.getPause() > vmOpEvent.getTimestamp()) {
             vmOpEvent.setTimestamp(previousEvent.getTimestamp() + previousEvent.getPause());
             if (previousEvent.getDatestamp() != null) {
@@ -521,7 +486,7 @@ public class GCModel implements Serializable {
         }
     }
 
-    private void setTimeStamp(VmOperationEvent vmOpEvent) {
+    protected void setTimeStamp(VmOperationEvent vmOpEvent) {
         AbstractGCEvent<?> previousEvent = stopTheWorldEvents.size() > 1
                 ? stopTheWorldEvents.get(stopTheWorldEvents.size() - 2)
                 : null;
@@ -537,7 +502,7 @@ public class GCModel implements Serializable {
      *
      * @param event
      */
-    private void updatePromotion(GCEvent event) {
+    protected void updatePromotion(GCEvent event) {
         if (event.getGeneration().equals(Generation.YOUNG) && event.hasDetails() && !event.isFull()) {
 
             GCEvent youngEvent = null;
@@ -557,7 +522,7 @@ public class GCModel implements Serializable {
         }
     }
 
-    private void updateGcPauseInterval(GCEvent event) {
+    protected void updateGcPauseInterval(GCEvent event) {
         if (lastGcPauseTimeStamp > 0) {
             if (!event.isConcurrencyHelper()) {
                 // JRockit sometimes has special timestamps that seem to go back in time,
@@ -591,7 +556,7 @@ public class GCModel implements Serializable {
         }
     }
 
-    private void updateInitiatingOccupancyFraction(GCEvent event) {
+    protected void updateInitiatingOccupancyFraction(GCEvent event) {
         GCEvent initialMarkEvent = event;
 
         if (event.hasDetails()) {
@@ -612,7 +577,7 @@ public class GCModel implements Serializable {
         }
     }
 
-    private void updateHeapSizes(GCEvent event) {
+    protected void updateHeapSizes(GCEvent event) {
         // event always contains heap size
         if (event.getTotal() > 0) {
             heapAllocatedSizes.add(event.getTotal());

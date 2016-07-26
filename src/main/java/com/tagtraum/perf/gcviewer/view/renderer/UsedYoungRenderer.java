@@ -33,8 +33,7 @@ public class UsedYoungRenderer extends PolygonChartRenderer {
         ScaledPolygon polygon = createMemoryScaledPolygon();
         GCEvent lastTenuredEvent = null;
         GCEvent tenuredEvent = null;
-        for (Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents(); i.hasNext();) {
-            AbstractGCEvent<?> abstractGCEvent = i.next();
+        for (AbstractGCEvent<?> abstractGCEvent : model.getSTWEvents()) {
             if (abstractGCEvent instanceof GCEvent) {
                 GCEvent event = (GCEvent) abstractGCEvent;
                 GCEvent youngEvent = event.getYoung();

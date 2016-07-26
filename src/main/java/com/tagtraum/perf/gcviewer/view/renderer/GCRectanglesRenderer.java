@@ -51,7 +51,8 @@ public class GCRectanglesRenderer extends ChartRenderer {
         int leftBoundary = clip.x;
         int rightBoundary = clip.x + clip.width;
 
-        for (Iterator<AbstractGCEvent<?>> i = getModelChart().getModel().getStopTheWorldEvents(); i.hasNext() && lastX < rightBoundary;) {
+        for (Iterator<AbstractGCEvent<?>> i = getModelChart().getModel().getSTWEvents().iterator();
+             i.hasNext() && lastX < rightBoundary;) {
             AbstractGCEvent<?> event = i.next();
             double pause = event.getPause();
             int width = (int) Math.max(Math.abs(scaleFactor * pause), 1.0d);

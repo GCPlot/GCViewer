@@ -61,7 +61,7 @@ public class TestDataReaderSun1_4_0 {
         final DataReader reader = new DataReaderSun1_6_0(new GCResource("byteArray"), in, GcLogType.SUN1_4);
         GCModel model = reader.read();
         assertEquals("model size", 6, model.size());
-        Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents();
+        Iterator<AbstractGCEvent<?>> i = model.getSTWEvents().iterator();
         AbstractGCEvent<?> event = i.next();
         assertEquals("event 1", event, event1);
         event = i.next();
@@ -102,7 +102,7 @@ public class TestDataReaderSun1_4_0 {
         AbstractGCEvent<GCEvent> event6 = new GCEvent(2.831d, 1202, 856, 1984, 0.0122599d, AbstractGCEvent.Type.GC);
 
         assertEquals("model size", 12, model.size());
-        Iterator<GCEvent> i = model.getGCEvents();
+        Iterator<GCEvent> i = model.getGCEvents().iterator();
         AbstractGCEvent<GCEvent> event = i.next();
         assertEquals("event 1", event, event1);
         event = i.next();
@@ -142,7 +142,7 @@ public class TestDataReaderSun1_4_0 {
         event4.add(new GCEvent(31.788d, 16141, 13914, 16528, 0.8032950d, AbstractGCEvent.Type.TENURED));
 
         assertEquals("model.size()", 4, model.size());
-        Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents();
+        Iterator<AbstractGCEvent<?>> i = model.getSTWEvents().iterator();
         AbstractGCEvent<?> event = i.next();
         assertEquals("event 1", event1, event);
         event = i.next();

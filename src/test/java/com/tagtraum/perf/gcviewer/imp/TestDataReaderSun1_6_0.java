@@ -65,7 +65,7 @@ public class TestDataReaderSun1_6_0 {
         DataReader reader = new DataReaderSun1_6_0(new GCResource("byteArray"), in, GcLogType.SUN1_6);
         GCModel model = reader.read();
 
-        assertEquals("gc type", "GC; ParNew (promotion failed); CMS; CMS Perm", model.getFullGCEvents().next().getTypeAsString());
+        assertEquals("gc type", "GC; ParNew (promotion failed); CMS; CMS Perm", model.getFullGCEvents().get(0).getTypeAsString());
     }
 
 
@@ -137,7 +137,7 @@ public class TestDataReaderSun1_6_0 {
 
 		assertEquals("GC count", 1, model.size());
 
-		assertEquals("gc pause", 5.3, model.getConcurrentGCEvents().next().getPause(), 0.001);
+		assertEquals("gc pause", 5.3, model.getConcurrentGCEvents().get(0).getPause(), 0.001);
 	}
 
     @Test
@@ -150,7 +150,7 @@ public class TestDataReaderSun1_6_0 {
 
 		assertEquals("GC count", 1, model.size());
 
-		assertEquals("gc pause", 3.849, model.getConcurrentGCEvents().next().getPause(), 0.0001);
+		assertEquals("gc pause", 3.849, model.getConcurrentGCEvents().get(0).getPause(), 0.0001);
 	}
 
     @Test

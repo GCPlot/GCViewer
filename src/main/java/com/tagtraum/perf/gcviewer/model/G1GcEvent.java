@@ -20,4 +20,8 @@ public class G1GcEvent extends GCEvent {
         super.toStringBuffer(sb);
     }
 
+    @Override
+    public boolean isG1Event() {
+        return true;
+    }
 }

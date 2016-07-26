@@ -26,11 +26,7 @@ public class PlainDataWriter extends AbstractDataWriter {
      * Writes the model and flushes the internal PrintWriter.
      */
     public void write(GCModel model) throws IOException {
-        Iterator<AbstractGCEvent<?>> i = model.getEvents();
-        while (i.hasNext()) {
-            out.println(i.next().toString());
-        }
-        
+        model.getAllEvents().forEach(i -> out.write(i.toString()));
         out.flush();
     }
 

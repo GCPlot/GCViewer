@@ -29,6 +29,14 @@ public abstract class AbstractGCEvent<T extends AbstractGCEvent<T>> implements S
     protected List<T> details;
     private double pause;
 
+    public boolean isG1Event() {
+        return false;
+    }
+
+    public boolean isVmEvent() {
+        return false;
+    }
+
     public Iterator<T> details() {
         if (details == null) return EMPTY_ITERATOR;
         return details.iterator();

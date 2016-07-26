@@ -32,7 +32,7 @@ public class FullGCLineRenderer extends ChartRenderer {
 
         int height = getHeight();
         int lastScaledTimestamp = Integer.MIN_VALUE;
-        for (Iterator<GCEvent> i = getModelChart().getModel().getFullGCEvents(); i.hasNext();) {
+        for (Iterator<GCEvent> i = getModelChart().getModel().getFullGCEvents().iterator(); i.hasNext();) {
             GCEvent event = i.next();
             int scaledTimestamp = (int)(scaleFactor * (event.getTimestamp() - getModelChart().getModel().getFirstPauseTimeStamp()));
             if (scaledTimestamp != lastScaledTimestamp && scaledTimestamp >= minX && scaledTimestamp <= maxX) {

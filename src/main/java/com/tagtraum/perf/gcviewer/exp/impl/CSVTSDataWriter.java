@@ -32,7 +32,7 @@ public class CSVTSDataWriter extends AbstractDataWriter {
     public void write(GCModel model) throws IOException {
         writeHeader();
         
-        Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents();
+        Iterator<AbstractGCEvent<?>> i = model.getSTWEvents().iterator();
         while (i.hasNext()) {
             AbstractGCEvent<?> abstractGCEvent = i.next();
             // filter "application stopped" events

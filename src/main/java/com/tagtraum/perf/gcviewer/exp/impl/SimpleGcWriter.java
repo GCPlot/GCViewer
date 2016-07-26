@@ -34,7 +34,7 @@ public class SimpleGcWriter extends AbstractDataWriter {
      */
     @Override
     public void write(GCModel model) throws IOException {
-        Iterator<AbstractGCEvent<?>> i = model.getEvents();
+        Iterator<AbstractGCEvent<?>> i = model.getAllEvents().iterator();
         final Locale NO_LOCALE = null;
         while (i.hasNext()) {
             AbstractGCEvent<?> abstractEvent = i.next();

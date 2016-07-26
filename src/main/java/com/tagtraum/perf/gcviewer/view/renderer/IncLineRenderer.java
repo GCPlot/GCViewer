@@ -26,8 +26,7 @@ public class IncLineRenderer extends ChartRenderer {
         double scaleFactor = getModelChart().getScaleFactor();
         int height = getHeight();
         int lastScaledTimestamp = Integer.MIN_VALUE;
-        for (Iterator<GCEvent> i = getModelChart().getModel().getGCEvents(); i.hasNext();) {
-            GCEvent event = i.next();
+        for (GCEvent event : getModelChart().getModel().getGCEvents()) {
             if (event.isInc()) {
                 int scaledTimestamp = (int) (scaleFactor * (event.getTimestamp() - getModelChart().getModel().getFirstPauseTimeStamp()));
                 if (scaledTimestamp != lastScaledTimestamp) {

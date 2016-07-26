@@ -35,8 +35,7 @@ public class TotalHeapRenderer extends PolygonChartRenderer {
         ScaledPolygon polygon = createMemoryScaledPolygon();
         polygon.addPoint(0.0d, 0.0d);
         int lastTotal = 0;
-        for (Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents(); i.hasNext();) {
-            AbstractGCEvent<?> abstractGCEvent = i.next();
+        for (AbstractGCEvent<?> abstractGCEvent : model.getSTWEvents()) {
             if (abstractGCEvent instanceof GCEvent) {
                 GCEvent event = (GCEvent) abstractGCEvent;
                 if (event.getTotal() > 0) {

@@ -39,7 +39,7 @@ public class TestDataReaderSun1_2_2 {
         DataReader reader = new DataReaderSun1_2_2(new GCResource("byteArray"), in);
         GCModel model = reader.read();
         assertEquals(3, model.size());
-        Iterator<GCEvent> i = model.getGCEvents();
+        Iterator<GCEvent> i = model.getGCEvents().iterator();
         GCEvent event = i.next();
         System.err.println(event.toString());
         assertEquals(event1, event);

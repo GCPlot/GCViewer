@@ -30,8 +30,7 @@ public class UsedTenuredRenderer extends PolygonChartRenderer {
     @Override
     public Polygon computePolygon(ModelChart modelChart, GCModel model) {
         ScaledPolygon polygon = createMemoryScaledPolygon();
-        for (Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents(); i.hasNext();) {
-            AbstractGCEvent<?> abstractGCEvent = i.next();
+        for (AbstractGCEvent<?> abstractGCEvent : model.getSTWEvents()) {
             if (abstractGCEvent instanceof GCEvent) {
                 GCEvent event = (GCEvent) abstractGCEvent;
                 GCEvent tenuredEvent = event.getTenured();

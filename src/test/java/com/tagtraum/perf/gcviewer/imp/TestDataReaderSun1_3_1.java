@@ -31,7 +31,7 @@ public class TestDataReaderSun1_3_1 {
         DataReader reader = new DataReaderSun1_3_1(new GCResource("byteArray"), in, GcLogType.SUN1_3_1);
         GCModel model = reader.read();
         assertTrue(model.size() == 4);
-        Iterator<AbstractGCEvent<?>> i = model.getStopTheWorldEvents();
+        Iterator<AbstractGCEvent<?>> i = model.getSTWEvents().iterator();
         AbstractGCEvent<?> event = i.next();
         assertEquals(event, event1);
         event = i.next();
