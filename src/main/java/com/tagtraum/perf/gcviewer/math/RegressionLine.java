@@ -62,4 +62,14 @@ public class RegressionLine implements Serializable {
         return (n * sumXY - sumX * sumY) / (n * sumXSquare - sumX * sumX);
     }
 
+    @Override
+    public String toString() {
+        return "RegressionLine{" +
+                "sumX=" + sumX +
+                ", sumY=" + sumY +
+                ", sumXSquare=" + sumXSquare +
+                ", sumXY=" + sumXY +
+                ", n=" + n +
+                '}';
+    }
 }

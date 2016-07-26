@@ -83,4 +83,14 @@ public class IntData implements Serializable  {
         }
         return sum / m;
     }
+
+    @Override
+    public String toString() {
+        return "IntData{" +
+                "n=" + n +
+                ", sum=" + sum +
+                ", min=" + min +
+                ", max=" + max +
+                '}';
+    }
 }

@@ -85,4 +85,14 @@ public class DoubleData implements Serializable {
         }
         return sum / m;
     }
+
+    @Override
+    public String toString() {
+        return "DoubleData{" +
+                "n=" + n +
+                ", sum=" + sum +
+                ", min=" + min +
+                ", max=" + max +
+                '}';
+    }
 }
