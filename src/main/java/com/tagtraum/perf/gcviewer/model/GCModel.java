@@ -39,7 +39,7 @@ public class GCModel implements Serializable {
      *
      * @author <a href="mailto:gcviewer@gmx.ch">Joerg Wuethrich</a>
      */
-    private static class FileInformation implements Serializable {
+    protected static class FileInformation implements Serializable {
         private static final long serialVersionUID = 1L;
 
         public long lastModified;
@@ -89,58 +89,58 @@ public class GCModel implements Serializable {
 
     private static final Logger LOG = Logger.getLogger(GCModel.class.getName());
 
-    private List<AbstractGCEvent<?>> allEvents;
-    private List<AbstractGCEvent<?>> stopTheWorldEvents;
-    private List<GCEvent> gcEvents;
-    private List<AbstractGCEvent<?>> vmOperationEvents;
-    private List<ConcurrentGCEvent> concurrentGCEvents;
-    private List<GCEvent> currentNoFullGCEvents;
-    private List<GCEvent> fullGCEvents;
-    private FileInformation fileInformation = new FileInformation();
+    protected List<AbstractGCEvent<?>> allEvents;
+    protected List<AbstractGCEvent<?>> stopTheWorldEvents;
+    protected List<GCEvent> gcEvents;
+    protected List<AbstractGCEvent<?>> vmOperationEvents;
+    protected List<ConcurrentGCEvent> concurrentGCEvents;
+    protected List<GCEvent> currentNoFullGCEvents;
+    protected List<GCEvent> fullGCEvents;
+    protected FileInformation fileInformation = new FileInformation();
 
-    private Map<String, DoubleData> fullGcEventPauses; // pause information about all full gc events for detailed output
-    private Map<String, DoubleData> gcEventPauses; // pause information about all stw events for detailed output
-    private Map<String, DoubleData> concurrentGcEventPauses; // pause information about all concurrent events
-    private Map<String, DoubleData> vmOperationEventPauses; // pause information about vm operations ("application stopped")
+    protected Map<String, DoubleData> fullGcEventPauses; // pause information about all full gc events for detailed output
+    protected Map<String, DoubleData> gcEventPauses; // pause information about all stw events for detailed output
+    protected Map<String, DoubleData> concurrentGcEventPauses; // pause information about all concurrent events
+    protected Map<String, DoubleData> vmOperationEventPauses; // pause information about vm operations ("application stopped")
 
-    private IntData heapAllocatedSizes; // allocated heap size of every event
-    private IntData tenuredAllocatedSizes; // allocated tenured size of every event that has this information
-    private IntData youngAllocatedSizes; // allocated young size of every event that has this information
-    private IntData permAllocatedSizes; // allocated perm size of every event that has this information
-    private IntData heapUsedSizes; // used heap of every event
-    private IntData tenuredUsedSizes; // used tenured size of every event that has this information
-    private IntData youngUsedSizes; // used young size of every event that has this information
-    private IntData permUsedSizes; // used perm size of every event that has this information
+    protected IntData heapAllocatedSizes; // allocated heap size of every event
+    protected IntData tenuredAllocatedSizes; // allocated tenured size of every event that has this information
+    protected IntData youngAllocatedSizes; // allocated young size of every event that has this information
+    protected IntData permAllocatedSizes; // allocated perm size of every event that has this information
+    protected IntData heapUsedSizes; // used heap of every event
+    protected IntData tenuredUsedSizes; // used tenured size of every event that has this information
+    protected IntData youngUsedSizes; // used young size of every event that has this information
+    protected IntData permUsedSizes; // used perm size of every event that has this information
 
-    private IntData postConcurrentCycleUsedTenuredSizes; // used tenured heap after concurrent collections
-    private IntData postConcurrentCycleUsedHeapSizes; // used heap after concurrent collections
+    protected IntData postConcurrentCycleUsedTenuredSizes; // used tenured heap after concurrent collections
+    protected IntData postConcurrentCycleUsedHeapSizes; // used heap after concurrent collections
 
-    private IntData promotion; // promotion from young to tenured generation during young collections
+    protected IntData promotion; // promotion from young to tenured generation during young collections
 
-    private double firstPauseTimeStamp = Double.MAX_VALUE;
-    private double lastPauseTimeStamp = 0;
-    private DoubleData totalPause;
-    private DoubleData fullGCPause;
-    private double lastFullGcPauseTimeStamp = 0;
-    private DoubleData fullGcPauseInterval; // interval between two stop the Full GC pauses
-    private DoubleData gcPause; // not full gc but stop the world pause
-    private DoubleData vmOperationPause; // "application stopped"
-    private double lastGcPauseTimeStamp = 0;
-    private DoubleData pauseInterval; // interval between two stop the world pauses
-    private DoubleData initiatingOccupancyFraction; // all concurrent collectors; start of concurrent collection
-    private long freedMemory;
-    private Format format;
-    private IntData postGCUsedMemory;
-    private IntData postFullGCUsedHeap;
-    private IntData freedMemoryByGC;
-    private IntData freedMemoryByFullGC;
-    private DoubleData postGCSlope;
-    private RegressionLine currentPostGCSlope;
-    private RegressionLine currentRelativePostGCIncrease;
-    private DoubleData relativePostGCIncrease;
-    private RegressionLine postFullGCSlope;
-    private RegressionLine relativePostFullGCIncrease;
-    private URL url;
+    protected double firstPauseTimeStamp = Double.MAX_VALUE;
+    protected double lastPauseTimeStamp = 0;
+    protected DoubleData totalPause;
+    protected DoubleData fullGCPause;
+    protected double lastFullGcPauseTimeStamp = 0;
+    protected DoubleData fullGcPauseInterval; // interval between two stop the Full GC pauses
+    protected DoubleData gcPause; // not full gc but stop the world pause
+    protected DoubleData vmOperationPause; // "application stopped"
+    protected double lastGcPauseTimeStamp = 0;
+    protected DoubleData pauseInterval; // interval between two stop the world pauses
+    protected DoubleData initiatingOccupancyFraction; // all concurrent collectors; start of concurrent collection
+    protected long freedMemory;
+    protected Format format;
+    protected IntData postGCUsedMemory;
+    protected IntData postFullGCUsedHeap;
+    protected IntData freedMemoryByGC;
+    protected IntData freedMemoryByFullGC;
+    protected DoubleData postGCSlope;
+    protected RegressionLine currentPostGCSlope;
+    protected RegressionLine currentRelativePostGCIncrease;
+    protected DoubleData relativePostGCIncrease;
+    protected RegressionLine postFullGCSlope;
+    protected RegressionLine relativePostFullGCIncrease;
+    protected URL url;
 
     public GCModel() {
         this.allEvents = new ArrayList<AbstractGCEvent<?>>();
