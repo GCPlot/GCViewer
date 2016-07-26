@@ -139,13 +139,13 @@ public class GCModel implements Serializable {
     protected URL url;
 
     public GCModel() {
-        this.allEvents = new ArrayList<AbstractGCEvent<?>>();
-        this.stopTheWorldEvents = new ArrayList<AbstractGCEvent<?>>();
-        this.gcEvents = new ArrayList<GCEvent>();
-        this.vmOperationEvents = new ArrayList<AbstractGCEvent<?>>();
-        this.concurrentGCEvents = new ArrayList<ConcurrentGCEvent>();
-        this.fullGCEvents = new ArrayList<GCEvent>();
-        this.currentNoFullGCEvents = new ArrayList<GCEvent>();
+        this.allEvents = new ArrayList<>();
+        this.stopTheWorldEvents = new ArrayList<>();
+        this.gcEvents = new ArrayList<>();
+        this.vmOperationEvents = new ArrayList<>();
+        this.concurrentGCEvents = new ArrayList<>();
+        this.fullGCEvents = new ArrayList<>();
+        this.currentNoFullGCEvents = new ArrayList<>();
         this.currentPostGCSlope = new RegressionLine();
         this.postFullGCSlope = new RegressionLine();
         this.postGCSlope = new DoubleData();
@@ -164,10 +164,10 @@ public class GCModel implements Serializable {
         this.relativePostGCIncrease = new DoubleData();
         this.relativePostFullGCIncrease = new RegressionLine();
 
-        this.fullGcEventPauses = new TreeMap<String, DoubleData>();
-        this.gcEventPauses = new TreeMap<String, DoubleData>();
-        this.concurrentGcEventPauses = new TreeMap<String, DoubleData>();
-        this.vmOperationEventPauses = new TreeMap<String, DoubleData>();
+        this.fullGcEventPauses = new TreeMap<>();
+        this.gcEventPauses = new TreeMap<>();
+        this.concurrentGcEventPauses = new TreeMap<>();
+        this.vmOperationEventPauses = new TreeMap<>();
 
         this.heapAllocatedSizes = new IntData();
         this.permAllocatedSizes = new IntData();
