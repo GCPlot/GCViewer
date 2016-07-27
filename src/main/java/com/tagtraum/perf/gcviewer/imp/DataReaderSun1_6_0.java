@@ -239,6 +239,9 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                     printTenuringDistributionOn = false;
                     // filter out lines that don't need to be parsed
                     if (startsWith(line, EXCLUDE_STRINGS, false)) {
+                        if (excludedHandler != null) {
+                            excludedHandler.accept(line);
+                        }
                         continue;
                     }
                     else if (line.indexOf(APPLICATION_TIME) > 0) {

@@ -10,6 +10,7 @@ import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,6 +58,7 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
 
     /** the log type allowing for small differences between different versions of the gc logs */
     protected GcLogType gcLogType;
+    protected Consumer<String> excludedHandler;
 
     /**
      * Create an instance of this class passing an inputStream an the type of the logfile.
@@ -71,6 +73,10 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
 
     protected GCModel createGCModel() {
         return new GCModel();
+    }
+
+    public void setExcludedHandler(Consumer<String> excludedHandler) {
+        this.excludedHandler = excludedHandler;
     }
 
     /**
