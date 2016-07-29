@@ -169,20 +169,7 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
                     continue;
                 }
                 try {
-                    // filter out lines that don't need to be parsed
-                    if (startsWith(line, EXCLUDE_STRINGS, false)) {
-                        if (excludedHandler != null) {
-                            excludedHandler.accept(line);
-                        }
-                        continue;
-                    }
-                    else if (line.indexOf(APPLICATION_TIME) > 0) {
-                        continue;
-                    }
-                    else if (startsWith(line, LOG_INFORMATION_STRINGS, false)) {
-                        getLogger().info(line);
-                        continue;
-                    }
+                    if (filter(line, EXCLUDE_STRINGS, APPLICATION_TIME)) continue;
 
                     // remove G1 ergonomics pieces
                     if (line.indexOf(G1_ERGONOMICS) >= 0) {

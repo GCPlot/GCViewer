@@ -237,22 +237,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                 }
                 try {
                     printTenuringDistributionOn = false;
-                    // filter out lines that don't need to be parsed
-                    if (startsWith(line, EXCLUDE_STRINGS, false)) {
-                        if (excludedHandler != null) {
-                            excludedHandler.accept(line);
-                        }
-                        continue;
-                    }
-                    else if (line.indexOf(APPLICATION_TIME) > 0) {
-                        // -XX:+PrintGCApplicationConcurrentTime
-                        // when it occurs including timestamp (since about jdk1.7.0_50) it should still be ignored
-                        continue;
-                    }
-                    else if (startsWith(line, LOG_INFORMATION_STRINGS, false)) {
-                        getLogger().info(line);
-                        continue;
-                    }
+                    if (filter(line, EXCLUDE_STRINGS, APPLICATION_TIME)) continue;
 
                     if (line.indexOf(CMS_ABORT_PRECLEAN) >= 0) {
                         // line contains like " CMS: abort preclean due to time "

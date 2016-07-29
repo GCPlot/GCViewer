@@ -47,7 +47,7 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
     protected static final String LOG_INFORMATION_HOTSPOT = "Java HotSpot";
     protected static final String LOG_INFORMATION_MEMORY = "Memory:";
     protected static final String LOG_INFORMATION_COMMANDLINE_FLAGS = "CommandLine flags:";
-    protected static final List<String> LOG_INFORMATION_STRINGS = new LinkedList<String>();
+    protected static final List<String> LOG_INFORMATION_STRINGS = new LinkedList<>();
 
     static {
         LOG_INFORMATION_STRINGS.add(LOG_INFORMATION_OPENJDK);
@@ -59,6 +59,7 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
     /** the log type allowing for small differences between different versions of the gc logs */
     protected GcLogType gcLogType;
     protected Consumer<String> excludedHandler;
+    protected Consumer<String> headerHandler;
 
     /**
      * Create an instance of this class passing an inputStream an the type of the logfile.
@@ -77,6 +78,30 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
 
     public void setExcludedHandler(Consumer<String> excludedHandler) {
         this.excludedHandler = excludedHandler;
+    }
+
+    public void setHeaderHandler(Consumer<String> headerHandler) {
+        this.headerHandler = headerHandler;
+    }
+
+    protected boolean filter(String line, List<String> exclude, String appTime) {
+        // filter out lines that don't need to be parsed
+        if (startsWith(line, exclude, false)) {
+            if (excludedHandler != null) {
+                excludedHandler.accept(line);
+            }
+            return true;
+        }
+        else if (line.indexOf(appTime) > 0) {
+            return true;
+        }
+        else if (startsWith(line, LOG_INFORMATION_STRINGS, false)) {
+            if (headerHandler != null) {
+                headerHandler.accept(line);
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
