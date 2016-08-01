@@ -1,15 +1,5 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.io.File;
-
-import javax.swing.AbstractAction;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
-import javax.swing.filechooser.FileFilter;
-
 import com.tagtraum.perf.gcviewer.exp.DataWriter;
 import com.tagtraum.perf.gcviewer.exp.DataWriterType;
 import com.tagtraum.perf.gcviewer.exp.impl.DataWriterFactory;
@@ -21,6 +11,11 @@ import com.tagtraum.perf.gcviewer.view.GCDocument;
 import com.tagtraum.perf.gcviewer.view.GCViewerGui;
 import com.tagtraum.perf.gcviewer.view.util.ExtensionFileFilter;
 import com.tagtraum.perf.gcviewer.view.util.ImageHelper;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
 
 /**
  * @author <a href="mailto:hs@tagtraum.com">Hendrik Schreiber</a>

@@ -1,19 +1,18 @@
 package com.tagtraum.perf.gcviewer.view;
 
 
+import com.tagtraum.perf.gcviewer.view.model.RecentGCResourcesModel;
+
 import javax.swing.*;
-import javax.swing.event.ListDataListener;
 import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.PlainDocument;
-
-import com.tagtraum.perf.gcviewer.view.model.RecentGCResourcesModel;
-
-import java.util.List;
-import java.util.ArrayList;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * AutoCompletionTextField.

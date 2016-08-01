@@ -1,13 +1,13 @@
 package com.tagtraum.perf.gcviewer.exp.impl;
 
+import com.tagtraum.perf.gcviewer.exp.DataWriter;
+import com.tagtraum.perf.gcviewer.exp.DataWriterType;
+import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
-
-import com.tagtraum.perf.gcviewer.exp.DataWriter;
-import com.tagtraum.perf.gcviewer.exp.DataWriterType;
-import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 
 /**
  * Factory for all available {@link DataWriter} implementations.

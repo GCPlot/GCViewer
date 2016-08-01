@@ -1,20 +1,14 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.Component;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.swing.Action;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 import com.tagtraum.perf.gcviewer.view.model.RecentGCResourcesModel;
 import com.tagtraum.perf.gcviewer.view.util.OSXSupport;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * MenuBar for GCViewerGui. 

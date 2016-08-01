@@ -1,17 +1,5 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import static org.hamcrest.Matchers.closeTo;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-
 import com.tagtraum.perf.gcviewer.UnittestHelper;
 import com.tagtraum.perf.gcviewer.math.DoubleData;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
@@ -21,6 +9,14 @@ import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.model.GCResource;
 import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.*;
 
 public class TestDataReaderSun1_7_0G1 {
 

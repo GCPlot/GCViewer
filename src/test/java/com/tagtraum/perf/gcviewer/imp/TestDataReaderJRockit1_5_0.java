@@ -6,7 +6,14 @@
  */
 package com.tagtraum.perf.gcviewer.imp;
 
-import static org.junit.Assert.assertEquals;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import com.tagtraum.perf.gcviewer.math.DoubleData;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
+import com.tagtraum.perf.gcviewer.model.GCEvent;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -17,15 +24,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
-import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
-import org.junit.Test;
-
-import com.tagtraum.perf.gcviewer.UnittestHelper;
-import com.tagtraum.perf.gcviewer.math.DoubleData;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
-import com.tagtraum.perf.gcviewer.model.GCEvent;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.model.GCResource;
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>Test DataReaderJRockit1_5_0 implementation.</p>

@@ -2,14 +2,7 @@ package com.tagtraum.perf.gcviewer.model;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * The abstract gc event is the base class for all types of events. All sorts of general

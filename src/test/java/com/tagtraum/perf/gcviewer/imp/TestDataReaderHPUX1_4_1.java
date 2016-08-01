@@ -6,15 +6,14 @@
  */
 package com.tagtraum.perf.gcviewer.imp;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.InputStream;
-
-import org.junit.Test;
-
 import com.tagtraum.perf.gcviewer.UnittestHelper;
 import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.model.GCResource;
+import org.junit.Test;
+
+import java.io.InputStream;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  *

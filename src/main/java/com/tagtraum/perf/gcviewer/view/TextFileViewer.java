@@ -1,19 +1,16 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.Component;
-import java.awt.Frame;
+import com.tagtraum.perf.gcviewer.view.util.UrlDisplayHelper;
+
+import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkEvent.EventType;
+import javax.swing.event.HyperlinkListener;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkEvent.EventType;
-import javax.swing.event.HyperlinkListener;
-
-import com.tagtraum.perf.gcviewer.view.util.UrlDisplayHelper;
 
 /**
  * Dialog to display a text file. Hyperlinks are made clickable. 

@@ -1,8 +1,6 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import javax.swing.JComboBox;
-import javax.swing.JToggleButton;
-import javax.swing.JToolBar;
+import javax.swing.*;
 
 /**
  * Toolbar for {@link GCViewerGui}.

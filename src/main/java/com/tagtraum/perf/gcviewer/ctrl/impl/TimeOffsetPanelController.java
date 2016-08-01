@@ -1,11 +1,11 @@
 package com.tagtraum.perf.gcviewer.ctrl.impl;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-
 import com.tagtraum.perf.gcviewer.view.GCDocument;
 import com.tagtraum.perf.gcviewer.view.TimeOffsetPanel;
 import com.tagtraum.perf.gcviewer.view.model.PropertyChangeEventConsts;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Deal with events fired by {@link TimeOffsetPanel}.

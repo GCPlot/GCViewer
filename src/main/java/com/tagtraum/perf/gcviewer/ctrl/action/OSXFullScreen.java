@@ -1,22 +1,17 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.awt.Event;
-import java.awt.Toolkit;
-import java.awt.Window;
+import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
+import com.tagtraum.perf.gcviewer.view.ActionCommands;
+import com.tagtraum.perf.gcviewer.view.GCViewerGui;
+import com.tagtraum.perf.gcviewer.view.util.OSXSupport;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-
-import javax.swing.AbstractAction;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
-
-import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
-import com.tagtraum.perf.gcviewer.view.ActionCommands;
-import com.tagtraum.perf.gcviewer.view.GCViewerGui;
-import com.tagtraum.perf.gcviewer.view.util.OSXSupport;
 
 /**
  * Used to enter and exit full screen mode on Mac OS X Lion and later.

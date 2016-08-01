@@ -1,16 +1,15 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import static org.junit.Assert.assertEquals;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.Test;
-
-import com.tagtraum.perf.gcviewer.UnittestHelper;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.model.GCResource;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests some cases for java 1.5 (using DataReaderSun1_6_0).

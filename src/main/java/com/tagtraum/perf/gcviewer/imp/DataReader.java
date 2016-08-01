@@ -1,8 +1,8 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import java.io.IOException;
-
 import com.tagtraum.perf.gcviewer.model.GCModel;
+
+import java.io.IOException;
 
 /**
  *

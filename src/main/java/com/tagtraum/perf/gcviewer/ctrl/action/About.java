@@ -1,14 +1,13 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 import com.tagtraum.perf.gcviewer.view.AboutDialog;
 import com.tagtraum.perf.gcviewer.view.ActionCommands;
 import com.tagtraum.perf.gcviewer.view.util.ImageHelper;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  *

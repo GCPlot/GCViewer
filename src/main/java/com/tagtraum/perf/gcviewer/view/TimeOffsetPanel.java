@@ -1,5 +1,9 @@
 package com.tagtraum.perf.gcviewer.view;
 
+import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
+import com.tagtraum.perf.gcviewer.view.model.PropertyChangeEventConsts;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -7,17 +11,6 @@ import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import javax.swing.AbstractAction;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JSpinner;
-import javax.swing.KeyStroke;
-import javax.swing.SpinnerDateModel;
-
-import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
-import com.tagtraum.perf.gcviewer.view.model.PropertyChangeEventConsts;
 
 /**
  * This panel shows a checkbox and a date input field to enter a datetime offset for a gc log.

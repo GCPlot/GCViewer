@@ -1,13 +1,9 @@
 package com.tagtraum.perf.gcviewer.view.util;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Paint;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.net.URL;
-
-import javax.swing.ImageIcon;
 
 /**
  * Helper class to deal with images.

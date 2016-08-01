@@ -12,7 +12,6 @@ import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.logging.Handler;
-import java.util.logging.Logger;
 
 /**
  * Controller for {@link GCDocument}.

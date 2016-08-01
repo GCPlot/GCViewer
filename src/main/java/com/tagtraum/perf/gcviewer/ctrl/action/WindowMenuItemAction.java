@@ -1,14 +1,11 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
+import javax.swing.*;
+import javax.swing.event.InternalFrameEvent;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyVetoException;
-
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JInternalFrame;
-import javax.swing.event.InternalFrameEvent;
 
 /**
  * This action is used to control the selection of the items in the window menu.

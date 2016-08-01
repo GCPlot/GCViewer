@@ -1,10 +1,12 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import static org.hamcrest.Matchers.closeTo;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
+import com.tagtraum.perf.gcviewer.model.GCEvent;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -13,13 +15,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.logging.Level;
 
-import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
-import org.junit.Test;
-import com.tagtraum.perf.gcviewer.UnittestHelper;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
-import com.tagtraum.perf.gcviewer.model.GCEvent;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.model.GCResource;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 /**
  * Tests for logs generated specifically by jdk 1.7.0.

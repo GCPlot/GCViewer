@@ -1,9 +1,13 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Point;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
+import com.tagtraum.perf.gcviewer.view.model.GCResourceGroup;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.beans.PropertyChangeEvent;
@@ -11,21 +15,6 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
-import javax.swing.BoundedRangeModel;
-import javax.swing.DefaultBoundedRangeModel;
-import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JViewport;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import com.tagtraum.perf.gcviewer.model.GCResource;
-import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
-import com.tagtraum.perf.gcviewer.view.model.GCResourceGroup;
 
 /**
  * GCDocument.

@@ -10,8 +10,6 @@ import com.tagtraum.perf.gcviewer.model.GCResource;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Loads the model in a background thread (progress can be tracked by propertyChangeListeners).

@@ -1,13 +1,10 @@
 package com.tagtraum.perf.gcviewer;
 
-import static org.hamcrest.Matchers.isEmptyOrNullString;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
-
+import com.tagtraum.perf.gcviewer.util.BuildInfoReader;
 import org.junit.Test;
 
-import com.tagtraum.perf.gcviewer.util.BuildInfoReader;
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Tests the class {@link BuildInfoReader} - makes sure that the properties from the file

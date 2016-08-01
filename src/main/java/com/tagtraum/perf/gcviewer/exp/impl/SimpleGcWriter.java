@@ -1,14 +1,14 @@
 package com.tagtraum.perf.gcviewer.exp.impl;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Iterator;
-import java.util.Locale;
-
 import com.tagtraum.perf.gcviewer.exp.AbstractDataWriter;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Generation;
 import com.tagtraum.perf.gcviewer.model.GCModel;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Iterator;
+import java.util.Locale;
 
 /**
  * Exports stop-the-world events in the "simple gc log" format (compatible to GCHisto).

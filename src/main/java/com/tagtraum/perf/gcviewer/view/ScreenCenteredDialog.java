@@ -1,22 +1,12 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.Insets;
-import java.awt.Panel;
-import java.awt.Toolkit;
+import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JRootPane;
-import javax.swing.KeyStroke;
-
-import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 
 /**
  * Base class for modal dialogs that are centered on screen.

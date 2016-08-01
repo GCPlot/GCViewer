@@ -1,12 +1,11 @@
 package com.tagtraum.perf.gcviewer.model;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.ExtendedType;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Generation;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for methods written in {@link AbstractGCEvent}.

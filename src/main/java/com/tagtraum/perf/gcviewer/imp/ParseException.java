@@ -1,8 +1,8 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import java.io.IOException;
-
 import com.tagtraum.perf.gcviewer.util.ParseInformation;
+
+import java.io.IOException;
 
 /**
  * Is thrown whenever a ParseError occurs.

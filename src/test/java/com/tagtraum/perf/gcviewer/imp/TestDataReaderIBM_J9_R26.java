@@ -1,18 +1,18 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import static com.tagtraum.perf.gcviewer.UnittestHelper.toKiloBytes;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.number.IsCloseTo.closeTo;
-import static org.junit.Assert.assertThat;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import com.tagtraum.perf.gcviewer.model.GCEvent;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import org.junit.Test;
 
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.tagtraum.perf.gcviewer.UnittestHelper;
-import com.tagtraum.perf.gcviewer.model.GCEvent;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import org.junit.Test;
+import static com.tagtraum.perf.gcviewer.UnittestHelper.toKiloBytes;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.junit.Assert.assertThat;
 
 /**
  * Tests some J9_R26 sample files against the IBM J9 parser.

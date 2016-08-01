@@ -1,11 +1,11 @@
 package com.tagtraum.perf.gcviewer.model;
 
-import static org.hamcrest.Matchers.closeTo;
-import static org.junit.Assert.assertThat;
-
 import com.tagtraum.perf.gcviewer.math.DoubleData;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertThat;
 
 /**
  * Specific tests for {@link GCModel} implementation.

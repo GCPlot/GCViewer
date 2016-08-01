@@ -1,14 +1,13 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.TimerTask;
-
-import javax.swing.SwingWorker;
-
 import com.tagtraum.perf.gcviewer.ctrl.GCModelLoaderController;
 import com.tagtraum.perf.gcviewer.ctrl.GCModelLoaderGroupTracker;
 import com.tagtraum.perf.gcviewer.view.GCDocument;
+
+import javax.swing.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.TimerTask;
 
 /**
  * Timer to trigger refresh of changed log files.

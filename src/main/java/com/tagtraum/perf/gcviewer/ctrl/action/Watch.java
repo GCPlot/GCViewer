@@ -1,18 +1,5 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
-import javax.swing.AbstractAction;
-import javax.swing.AbstractButton;
-import javax.swing.ImageIcon;
-import javax.swing.KeyStroke;
-import javax.swing.event.InternalFrameAdapter;
-import javax.swing.event.InternalFrameEvent;
-
 import com.tagtraum.perf.gcviewer.ctrl.GCModelLoaderController;
 import com.tagtraum.perf.gcviewer.model.GCResource;
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
@@ -20,6 +7,15 @@ import com.tagtraum.perf.gcviewer.view.ActionCommands;
 import com.tagtraum.perf.gcviewer.view.GCDocument;
 import com.tagtraum.perf.gcviewer.view.GCViewerGui;
 import com.tagtraum.perf.gcviewer.view.util.ImageHelper;
+
+import javax.swing.*;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * (De)activate automatic reloading of all {@link GCResource} within one {@link GCDocument}.

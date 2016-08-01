@@ -1,9 +1,9 @@
 package com.tagtraum.perf.gcviewer.exp;
 
+import com.tagtraum.perf.gcviewer.model.GCModel;
+
 import java.io.Closeable;
 import java.io.IOException;
-
-import com.tagtraum.perf.gcviewer.model.GCModel;
 
 /**
  * Writes a GCModel into a given Stream.

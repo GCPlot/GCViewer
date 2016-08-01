@@ -1,16 +1,12 @@
 package com.tagtraum.perf.gcviewer.view.renderer;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Paint;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.util.Iterator;
-
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
+import com.tagtraum.perf.gcviewer.model.VmOperationEvent;
 import com.tagtraum.perf.gcviewer.view.ChartRenderer;
 import com.tagtraum.perf.gcviewer.view.ModelChartImpl;
-import com.tagtraum.perf.gcviewer.model.VmOperationEvent;
+
+import java.awt.*;
+import java.util.Iterator;
 
 /**
  * Renders all stop the world event pauses as rectangles.

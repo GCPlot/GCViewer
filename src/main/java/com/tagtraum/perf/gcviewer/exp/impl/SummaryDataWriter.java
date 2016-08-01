@@ -1,5 +1,11 @@
 package com.tagtraum.perf.gcviewer.exp.impl;
 
+import com.tagtraum.perf.gcviewer.exp.AbstractDataWriter;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.util.FormattedValue;
+import com.tagtraum.perf.gcviewer.util.MemoryFormat;
+import com.tagtraum.perf.gcviewer.util.TimeFormat;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,12 +13,6 @@ import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Map;
-
-import com.tagtraum.perf.gcviewer.exp.AbstractDataWriter;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.util.FormattedValue;
-import com.tagtraum.perf.gcviewer.util.MemoryFormat;
-import com.tagtraum.perf.gcviewer.util.TimeFormat;
 
 /**
  * SummaryDataWriter writes a csv-file of quite a few parameters of the {@link GCModel} class.

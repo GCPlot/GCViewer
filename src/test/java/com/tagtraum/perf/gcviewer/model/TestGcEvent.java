@@ -1,12 +1,12 @@
 package com.tagtraum.perf.gcviewer.model;
 
-import static org.junit.Assert.*;
-
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.ExtendedType;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.ExtendedType;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Type;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Tests for class {@link GCEvent}.

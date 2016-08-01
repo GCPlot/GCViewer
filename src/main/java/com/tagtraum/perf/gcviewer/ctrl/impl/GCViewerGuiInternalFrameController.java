@@ -1,23 +1,14 @@
 package com.tagtraum.perf.gcviewer.ctrl.impl;
 
-import java.util.Map;
-import java.util.Map.Entry;
+import com.tagtraum.perf.gcviewer.ctrl.action.WindowMenuItemAction;
+import com.tagtraum.perf.gcviewer.view.*;
+import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
 
-import javax.swing.Action;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JInternalFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.*;
 import javax.swing.event.InternalFrameAdapter;
 import javax.swing.event.InternalFrameEvent;
-
-import com.tagtraum.perf.gcviewer.ctrl.action.WindowMenuItemAction;
-import com.tagtraum.perf.gcviewer.view.ActionCommands;
-import com.tagtraum.perf.gcviewer.view.GCDocument;
-import com.tagtraum.perf.gcviewer.view.GCViewerGui;
-import com.tagtraum.perf.gcviewer.view.GCViewerGuiMenuBar;
-import com.tagtraum.perf.gcviewer.view.GCViewerGuiToolBar;
-import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Controller class for internal frames of {@link GCViewerGui}. 

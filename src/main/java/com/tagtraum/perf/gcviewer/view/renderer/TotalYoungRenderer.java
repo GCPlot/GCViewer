@@ -1,16 +1,12 @@
 package com.tagtraum.perf.gcviewer.view.renderer;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
-import java.awt.Paint;
-import java.awt.Polygon;
-import java.util.Iterator;
-
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
 import com.tagtraum.perf.gcviewer.model.GCEvent;
 import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.view.ModelChart;
 import com.tagtraum.perf.gcviewer.view.ModelChartImpl;
+
+import java.awt.*;
 
 /**
  * Renders total size of young generation.

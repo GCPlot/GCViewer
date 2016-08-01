@@ -1,13 +1,9 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
-import java.io.UnsupportedEncodingException;
-
 import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.model.GCResource;
+
+import java.io.*;
 
 /**
  * Baseclass for every {@link DataReader} implementation.

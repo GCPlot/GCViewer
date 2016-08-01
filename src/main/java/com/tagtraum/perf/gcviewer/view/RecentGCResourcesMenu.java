@@ -1,9 +1,9 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import javax.swing.JMenu;
-
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 import com.tagtraum.perf.gcviewer.view.model.RecentGCResourcesModel;
+
+import javax.swing.*;
 
 /**
  * Special menu item dealing with recent URLs.

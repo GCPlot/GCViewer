@@ -1,22 +1,9 @@
 package com.tagtraum.perf.gcviewer.util;
 
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -24,9 +11,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.Test;
-
-import com.tagtraum.perf.gcviewer.UnittestHelper;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class TestHttpUrlConnectionHelper {
 

@@ -1,5 +1,11 @@
 package com.tagtraum.perf.gcviewer.model;
 
+import com.tagtraum.perf.gcviewer.math.DoubleData;
+import com.tagtraum.perf.gcviewer.math.IntData;
+import com.tagtraum.perf.gcviewer.math.RegressionLine;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.CollectionType;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Generation;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,18 +14,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.time.Duration;
-import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.tagtraum.perf.gcviewer.math.DoubleData;
-import com.tagtraum.perf.gcviewer.math.IntData;
-import com.tagtraum.perf.gcviewer.math.RegressionLine;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.CollectionType;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.Generation;
 
 /**
  * Collection of GCEvents.

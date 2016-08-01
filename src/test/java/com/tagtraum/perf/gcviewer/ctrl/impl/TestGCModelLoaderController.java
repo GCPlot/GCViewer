@@ -1,7 +1,12 @@
 package com.tagtraum.perf.gcviewer.ctrl.impl;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.view.GCViewerGui;
+import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -11,14 +16,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
-
-import com.tagtraum.perf.gcviewer.UnittestHelper;
-import com.tagtraum.perf.gcviewer.model.GCResource;
-import com.tagtraum.perf.gcviewer.view.GCViewerGui;
-import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unittest for main controller class of GCViewerGui ({@link GCModelLoaderControllerImpl}).

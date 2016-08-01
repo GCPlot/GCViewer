@@ -1,12 +1,8 @@
 package com.tagtraum.perf.gcviewer.view.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.tagtraum.perf.gcviewer.model.GCResource;
+
+import java.util.*;
 
 /**
  * Model managing a list of resource names (or groups of {@link GCResource}s).

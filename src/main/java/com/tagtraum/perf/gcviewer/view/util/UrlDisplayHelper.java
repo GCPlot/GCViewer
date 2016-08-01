@@ -1,13 +1,11 @@
 package com.tagtraum.perf.gcviewer.view.util;
 
-import java.awt.Component;
-import java.awt.Desktop;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
-
-import javax.swing.JOptionPane;
 
 /**
  * Helperclass to display urls in a browser on all platforms.

@@ -1,20 +1,17 @@
 package com.tagtraum.perf.gcviewer.imp;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import com.tagtraum.perf.gcviewer.UnittestHelper;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
 
-import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.tagtraum.perf.gcviewer.UnittestHelper;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.model.GCResource;
+import static org.junit.Assert.*;
 
 /**
  * Tests the implementation of {@link DataReaderFacade}.

@@ -1,11 +1,9 @@
 package com.tagtraum.perf.gcviewer.view.util;
 
-import javax.swing.Action;
-
 import com.tagtraum.perf.gcviewer.util.LoggerHelper;
 
-import java.awt.Image;
-import java.awt.Window;
+import javax.swing.*;
+import java.awt.*;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;

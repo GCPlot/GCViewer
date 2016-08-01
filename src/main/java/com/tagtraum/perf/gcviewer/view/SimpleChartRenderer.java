@@ -1,21 +1,16 @@
 package com.tagtraum.perf.gcviewer.view;
 
 import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
 
 import javax.imageio.ImageIO;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Graphics2D;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
-import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
-
-import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
 
 public class SimpleChartRenderer {
 

@@ -1,21 +1,18 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
-
-import java.time.ZonedDateTime;
-import java.util.Date;
-
+import com.tagtraum.perf.gcviewer.math.DoubleData;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
 import org.junit.experimental.theories.DataPoint;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
-import com.tagtraum.perf.gcviewer.math.DoubleData;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.view.ModelChartImpl;
-import com.tagtraum.perf.gcviewer.view.model.GCPreferences;
+import java.time.ZonedDateTime;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 /**
  * Testcase to test usage of "datestamp" flag in {@link ModelChartImpl}.

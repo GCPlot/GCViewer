@@ -1,12 +1,11 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.AbstractAction;
-
 import com.tagtraum.perf.gcviewer.ctrl.GCModelLoaderController;
 import com.tagtraum.perf.gcviewer.view.ActionCommands;
 import com.tagtraum.perf.gcviewer.view.model.GCResourceGroup;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 /**
  * <p>Action to open an entry of the recent urls menu.</p>

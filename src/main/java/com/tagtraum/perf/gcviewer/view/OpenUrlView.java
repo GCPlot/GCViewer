@@ -1,15 +1,10 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 import com.tagtraum.perf.gcviewer.view.model.RecentGCResourcesModel;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * View class to display "open Url" dialog.

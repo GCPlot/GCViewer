@@ -1,8 +1,7 @@
 package com.tagtraum.perf.gcviewer.ctrl.impl;
 
-import java.awt.Component;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * UncaughtExceptionHandler for GCViewer - makes sure, no exception goes completely unnoticed. 

@@ -1,12 +1,12 @@
 package com.tagtraum.perf.gcviewer.view.model;
 
+import com.tagtraum.perf.gcviewer.model.GCResource;
+
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import com.tagtraum.perf.gcviewer.model.GCResource;
 
 /**
  * <p>Holds a group of resource names (those displayed in the same GCDocument).</p>

@@ -1,16 +1,10 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
-
 import com.tagtraum.perf.gcviewer.util.BuildInfoReader;
 import com.tagtraum.perf.gcviewer.view.util.ImageHelper;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * DesktopPane is the "background" of the application after opening.

@@ -1,18 +1,17 @@
 package com.tagtraum.perf.gcviewer.exp;
 
-import static org.junit.Assert.assertEquals;
-
-import java.io.ByteArrayOutputStream;
-import java.util.Locale;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import com.tagtraum.perf.gcviewer.exp.impl.SimpleGcWriter;
 import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
 import com.tagtraum.perf.gcviewer.model.ConcurrentGCEvent;
 import com.tagtraum.perf.gcviewer.model.GCEvent;
 import com.tagtraum.perf.gcviewer.model.GCModel;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.util.Locale;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests the export format of {@link SimpleGcWriter}.

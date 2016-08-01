@@ -1,17 +1,13 @@
 package com.tagtraum.perf.gcviewer.ctrl.action;
 
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyVetoException;
-
-import javax.swing.AbstractAction;
-import javax.swing.DesktopManager;
-import javax.swing.JInternalFrame;
-import javax.swing.KeyStroke;
-
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 import com.tagtraum.perf.gcviewer.view.ActionCommands;
 import com.tagtraum.perf.gcviewer.view.GCViewerGui;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyVetoException;
 
 /**
  *

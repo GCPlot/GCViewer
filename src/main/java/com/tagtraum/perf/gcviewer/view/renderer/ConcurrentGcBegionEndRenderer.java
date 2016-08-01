@@ -1,14 +1,10 @@
 package com.tagtraum.perf.gcviewer.view.renderer;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Paint;
-import java.awt.RenderingHints;
-import java.util.Iterator;
-
 import com.tagtraum.perf.gcviewer.model.ConcurrentGCEvent;
 import com.tagtraum.perf.gcviewer.view.ChartRenderer;
 import com.tagtraum.perf.gcviewer.view.ModelChartImpl;
+
+import java.awt.*;
 
 /**
  * ConcurrentGcStardEndRenderer draws lines for every begin and end of a concurrent GC event. Start

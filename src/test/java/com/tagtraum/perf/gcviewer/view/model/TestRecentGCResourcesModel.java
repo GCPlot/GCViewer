@@ -1,13 +1,13 @@
 package com.tagtraum.perf.gcviewer.view.model;
 
-import static org.hamcrest.Matchers.is;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.net.MalformedURLException;
 import java.util.Arrays;
 
-import com.tagtraum.perf.gcviewer.model.GCResource;
-import org.junit.Assert;
-import org.junit.Test;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Test class {@link RecentGCResourcesModel}.

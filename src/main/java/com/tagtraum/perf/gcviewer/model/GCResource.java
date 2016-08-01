@@ -2,14 +2,12 @@ package com.tagtraum.perf.gcviewer.model;
 
 import org.slf4j.LoggerFactory;
 
+import javax.swing.event.SwingPropertyChangeSupport;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
-
-import javax.swing.event.SwingPropertyChangeSupport;
 
 /**
  * Identifies a GC resource: a file or URL resource containing GC info.

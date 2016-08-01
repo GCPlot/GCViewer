@@ -1,15 +1,10 @@
 package com.tagtraum.perf.gcviewer.view;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
 import com.tagtraum.perf.gcviewer.view.util.ExtensionFileFilter;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * View class to display "open file" gui element.

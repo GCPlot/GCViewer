@@ -5,7 +5,6 @@ import com.tagtraum.perf.gcviewer.view.ChartRenderer;
 import com.tagtraum.perf.gcviewer.view.ModelChartImpl;
 
 import java.awt.*;
-import java.util.Iterator;
 
 /**
  * IncLineRenderer.

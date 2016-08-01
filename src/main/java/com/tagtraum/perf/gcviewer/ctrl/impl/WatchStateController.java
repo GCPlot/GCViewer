@@ -1,10 +1,8 @@
 package com.tagtraum.perf.gcviewer.ctrl.impl;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JToggleButton;
 
 /**
  * ActionListener to synchronize state between two buttons in Menu / on ToolBar. 

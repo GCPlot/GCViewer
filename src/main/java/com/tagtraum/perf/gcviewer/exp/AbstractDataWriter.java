@@ -1,12 +1,12 @@
 package com.tagtraum.perf.gcviewer.exp;
 
+import com.tagtraum.perf.gcviewer.model.GCModel;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Map;
 import java.util.TreeMap;
-
-import com.tagtraum.perf.gcviewer.model.GCModel;
 
 /**
  * Abstract base class for all classes implementing {@link DataWriter}.

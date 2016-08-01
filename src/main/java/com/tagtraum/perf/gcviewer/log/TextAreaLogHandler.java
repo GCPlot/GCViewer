@@ -1,7 +1,10 @@
 package com.tagtraum.perf.gcviewer.log;
 
 import javax.swing.*;
-import java.util.logging.*;
+import java.util.logging.ErrorManager;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 
 /**
  * TextAreaLogHandler.

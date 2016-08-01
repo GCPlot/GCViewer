@@ -1,13 +1,10 @@
 package com.tagtraum.perf.gcviewer;
 
-import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
+import com.tagtraum.perf.gcviewer.exp.DataWriterType;
 import org.junit.Test;
 
-import com.tagtraum.perf.gcviewer.exp.DataWriterType;
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.*;
 
 /**
  * Tests the class {@link com.tagtraum.perf.gcviewer.GCViewerArgsParser} 

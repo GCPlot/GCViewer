@@ -1,10 +1,10 @@
 package com.tagtraum.perf.gcviewer;
 
+import com.tagtraum.perf.gcviewer.exp.DataWriterType;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.tagtraum.perf.gcviewer.exp.DataWriterType;
 
 /**
  * Parser for commandline arguments. 

@@ -57,14 +57,14 @@ Copyright © 2003-2007 Apple, Inc., All Rights Reserved
 
 */
 
+import com.tagtraum.perf.gcviewer.util.LoggerHelper;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.tagtraum.perf.gcviewer.util.LoggerHelper;
 
 
 public class OSXAdapter implements InvocationHandler {

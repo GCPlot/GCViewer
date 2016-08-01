@@ -1,5 +1,14 @@
 package com.tagtraum.perf.gcviewer.imp;
 
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.ExtendedType;
+import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.GcPattern;
+import com.tagtraum.perf.gcviewer.model.GCEvent;
+import com.tagtraum.perf.gcviewer.model.GCModel;
+import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.util.NumberParser;
+import com.tagtraum.perf.gcviewer.util.ParseInformation;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.LineNumberReader;
@@ -11,18 +20,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.ExtendedType;
-import com.tagtraum.perf.gcviewer.model.AbstractGCEvent.GcPattern;
-import com.tagtraum.perf.gcviewer.model.GCEvent;
-import com.tagtraum.perf.gcviewer.model.GCModel;
-import com.tagtraum.perf.gcviewer.model.GCResource;
-import com.tagtraum.perf.gcviewer.util.NumberParser;
-import com.tagtraum.perf.gcviewer.util.ParseInformation;
 
 /**
  * The AbstractDataReaderSun is the base class of most Sun / Oracle parser implementations.
