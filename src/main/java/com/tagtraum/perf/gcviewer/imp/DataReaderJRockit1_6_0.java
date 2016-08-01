@@ -27,7 +27,7 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading JRockit 1.6.0 format...");
+        getLogger().info("Reading JRockit 1.6.0 format...");
         boolean gcSummary = false;
         try {
             GCModel model = new GCModel();
@@ -45,7 +45,7 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
 
                 final int memoryIndex = line.indexOf(MEMORY_MARKER);
                 if (memoryIndex == -1) {
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine("Ignoring line " + in.getLineNumber() + ". Missing \"[memory ]\" marker: " + line);
+                    getLogger().debug("Ignoring line {}. Missing \"[memory ]\" marker: {}", in.getLineNumber(), line);
                     continue;
                 }
                 if (line.endsWith(MEMORY_MARKER)) {
@@ -60,32 +60,32 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
                 }
                 // Log any relevant memory usage reports at INFO level, rest as FINE
                 if (gcSummary) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startLog));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startLog));
                     continue;
                 }
                 else if (line.indexOf("Prefetch distance") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startLog));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startLog));
                     continue;
                 }
                 else if (line.indexOf("GC mode") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startLog));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startLog));
                     continue;
                 }
                 else if (line.indexOf("GC strategy") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startLog));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startLog));
                     continue;
                 }
                 else if (line.indexOf("OutOfMemory") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().warning("GC log contains OutOfMemory error: " + line.substring(startLog));
+                    if (getLogger().isWarnEnabled()) getLogger().warn("GC log contains OutOfMemory error: " + line.substring(startLog));
                     continue;
                 }
                 else if (line.substring(startLog).startsWith("<")) {
                     // ignore
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine(line.substring(startLog));
+                    if (getLogger().isDebugEnabled()) getLogger().debug(line.substring(startLog));
                     continue;
                 }
                 else if (line.toLowerCase().indexOf("heap size:") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startLog));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startLog));
                     final int nurserySizeStart = line.indexOf(NURSERY_SIZE);
                     final int nurserySizeEnd = line.indexOf('K', nurserySizeStart + NURSERY_SIZE.length());
                     if (nurserySizeStart != -1) {
@@ -95,7 +95,7 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
                 }
                 else if ((line.indexOf("C#") == -1) || (line.indexOf("->") == -1)){
                     // No [YC#] or [OC#] logs which we are interested in
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine(line.substring(startLog));
+                    if (getLogger().isDebugEnabled()) getLogger().debug(line.substring(startLog));
                     continue;
                 }
 
@@ -109,7 +109,7 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
 
                 final int colon = line.indexOf(':', startTimeIndex);
                 if (colon == -1) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("Malformed line (" + in.getLineNumber() + "). Missing colon after start time: " + line);
+                    getLogger().warn("Malformed line ({}). Missing colon after start time: {}", in.getLineNumber(), line);
                     continue;
                 }
 
@@ -133,7 +133,7 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
                 while (!Character.isDigit(line.charAt(++typeEnd))) {}
                 final AbstractGCEvent.Type type = AbstractGCEvent.Type.lookup("jrockit." + line.substring(typeStart, typeEnd).trim());
                 if (type == null) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info("Failed to determine type: " + line.substring(startTimeIndex));
+                    getLogger().info("Failed to determine type: {}", line.substring(startTimeIndex));
                     continue;
                 }
                 event.setType(type);
@@ -186,7 +186,7 @@ public class DataReaderJRockit1_6_0 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading done.");
+            getLogger().info("Reading done.");
         }
     }
 

@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,7 +44,7 @@ public class TestDataReaderFacade {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource(PARENT_PATH + SAMPLE_GCLOG_SUN1_6_0);
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         final GCModel model = dataReaderFacade.loadModel(gcResource);
         

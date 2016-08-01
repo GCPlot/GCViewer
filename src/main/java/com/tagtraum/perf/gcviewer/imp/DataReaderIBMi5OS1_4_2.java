@@ -41,7 +41,7 @@ public class DataReaderIBMi5OS1_4_2 extends AbstractDataReader {
      * @throws IOException When reading the inputstream fails.
      */
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading IBM i5/OS 1.4.2 format...");
+        getLogger().info("Reading IBM i5/OS 1.4.2 format...");
         try {
         	// Initialize model
             final GCModel model = new GCModel();
@@ -64,7 +64,7 @@ public class DataReaderIBMi5OS1_4_2 extends AbstractDataReader {
                 final String trimmedLine = line.trim();
                 // GC Data line always start with GC
                 if (!"".equals(trimmedLine) && !trimmedLine.startsWith("GC")) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info("Malformed line (" + in.getLineNumber() + "): " + line);
+                    getLogger().info("Malformed line ({}): {}", in.getLineNumber(), line);
                     state = 0;
                 }
                 switch (state) {
@@ -136,7 +136,7 @@ public class DataReaderIBMi5OS1_4_2 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Done reading.");
+            getLogger().info("Done reading.");
         }
     }
 

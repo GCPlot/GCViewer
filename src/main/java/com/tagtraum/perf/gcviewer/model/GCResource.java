@@ -1,5 +1,7 @@
 package com.tagtraum.perf.gcviewer.model;
 
+import org.slf4j.LoggerFactory;
+
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -23,7 +25,7 @@ public class GCResource {
 	private String resourceName;
 	private GCModel model;
 	private SwingPropertyChangeSupport propertyChangeSupport;
-	private Logger logger;
+	private org.slf4j.Logger logger;
     private boolean isReload;
     private boolean isReadCancelled;
 
@@ -38,7 +40,7 @@ public class GCResource {
 		this.propertyChangeSupport = new SwingPropertyChangeSupport(this);
 		this.model = new GCModel();
 
-	    logger = Logger.getLogger("GCResource".concat(Integer.toString(COUNT.incrementAndGet())));
+	    logger = LoggerFactory.getLogger("GCResource".concat(Integer.toString(COUNT.incrementAndGet())));
     }
 
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -66,7 +68,7 @@ public class GCResource {
         return true;
     }
 
-    public Logger getLogger() {
+    public org.slf4j.Logger getLogger() {
         return logger;
     }
 
@@ -168,6 +170,10 @@ public class GCResource {
 	    this.model = model;
 	    propertyChangeSupport.firePropertyChange(PROPERTY_MODEL, oldModel, model);
 	}
+
+    public void setLogger(org.slf4j.Logger logger) {
+        this.logger = logger;
+    }
 
     /**
      * reset internal boolean state to default (e.g. readCancelled)

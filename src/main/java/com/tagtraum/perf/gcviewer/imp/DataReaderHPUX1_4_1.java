@@ -32,7 +32,7 @@ public class DataReaderHPUX1_4_1 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading HP-UX 1.4.1-1.4.2 format...");
+        getLogger().info("Reading HP-UX 1.4.1-1.4.2 format...");
         try {
             final GCModel model = new GCModel();
             model.setFormat(GCModel.Format.SUN_X_LOG_GC);
@@ -41,13 +41,13 @@ public class DataReaderHPUX1_4_1 extends AbstractDataReader {
             while ((line = in.readLine()) != null && shouldContinue()) {
                 final StringTokenizer st = new StringTokenizer(line, " ");
                 if (st.countTokens() != 22) {
-                    if (getLogger().isLoggable(Level.WARNING)) {
-                        getLogger().warning("Malformed line (" + in.getLineNumber() + "). Wrong number of tokens ("+st.countTokens()+"): " + line);
+                    if (getLogger().isWarnEnabled()) {
+                        getLogger().warn("Malformed line (" + in.getLineNumber() + "). Wrong number of tokens ("+st.countTokens()+"): " + line);
                         continue;
                     }
                 }
                 if (!"<GC:".equals(st.nextToken())) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("Malformed line (" + in.getLineNumber() + "). Expected \"<GC:\" in " + line);
+                    if (getLogger().isWarnEnabled()) getLogger().warn("Malformed line (" + in.getLineNumber() + "). Expected \"<GC:\" in " + line);
                     continue;
                 }
                 event = new GCEvent();
@@ -207,10 +207,9 @@ public class DataReaderHPUX1_4_1 extends AbstractDataReader {
             if (in != null)
                 try {
                     in.close();
+                } catch (IOException ioe) {
                 }
-                catch (IOException ioe) {
-                }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading done.");
+            getLogger().info("Reading done.");
         }
     }
 

@@ -3,6 +3,7 @@ package com.tagtraum.perf.gcviewer.imp;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 /**
@@ -40,5 +41,4 @@ public class TestLogHandler extends Handler {
 	public void close() throws SecurityException {
 		// nothing to do
 	}
-
 }

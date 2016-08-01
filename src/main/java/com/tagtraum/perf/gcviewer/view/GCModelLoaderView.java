@@ -23,6 +23,7 @@ import javax.swing.SwingWorker;
 import com.tagtraum.perf.gcviewer.log.TextAreaLogHandler;
 import com.tagtraum.perf.gcviewer.model.GCResource;
 import com.tagtraum.perf.gcviewer.util.LocalisationHelper;
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 
 /**
  * Display the GCModel loading process for a GCDocument.
@@ -85,7 +86,7 @@ public class GCModelLoaderView extends JPanel implements PropertyChangeListener,
         progressBar.setValue(0);
         cancelButton.setVisible(true);
         messageLabel.setVisible(false);
-        gcResource.getLogger().addHandler(textAreaLogHandler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), textAreaLogHandler);
 
         this.gcResource = gcResource;
 	}

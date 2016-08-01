@@ -31,7 +31,7 @@ public class DataReaderIBM1_3_1 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading IBM 1.3.1 format...");
+        getLogger().info("Reading IBM 1.3.1 format...");
         try {
             final GCModel model = new GCModel();
             model.setFormat(GCModel.Format.IBM_VERBOSE_GC);
@@ -117,7 +117,7 @@ public class DataReaderIBM1_3_1 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Done reading.");
+            getLogger().info("Done reading.");
         }
     }
 

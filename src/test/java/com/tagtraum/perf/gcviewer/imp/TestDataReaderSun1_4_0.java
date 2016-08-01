@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.logging.Level;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 import com.tagtraum.perf.gcviewer.UnittestHelper;
@@ -160,7 +161,7 @@ public class TestDataReaderSun1_4_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_4_0PSPrintHeapAtGC.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         InputStream in = getInputStream(gcResource.getResourceName());
         final DataReader reader = new DataReaderSun1_6_0(gcResource, in, GcLogType.SUN1_4);

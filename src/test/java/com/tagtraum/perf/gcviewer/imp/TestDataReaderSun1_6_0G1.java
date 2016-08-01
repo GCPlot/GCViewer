@@ -13,6 +13,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 import com.tagtraum.perf.gcviewer.UnittestHelper;
@@ -36,7 +37,7 @@ public class TestDataReaderSun1_6_0G1 {
     	TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0G1_gc_verbose.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
     	
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0G1(gcResource, in, GcLogType.SUN1_6G1);
@@ -313,7 +314,7 @@ public class TestDataReaderSun1_6_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0G1InitialMarkMixed.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0G1(gcResource, in, GcLogType.SUN1_6G1);
@@ -350,7 +351,7 @@ public class TestDataReaderSun1_6_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0G1_PrintHeapAtGC.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0G1(gcResource, in, GcLogType.SUN1_6G1);
@@ -367,7 +368,7 @@ public class TestDataReaderSun1_6_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0G1_MarkStackFull.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0G1(gcResource, in, GcLogType.SUN1_6G1);
@@ -385,7 +386,7 @@ public class TestDataReaderSun1_6_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0G1FullGcTenuringDistribution.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0G1(gcResource, in, GcLogType.SUN1_6G1);

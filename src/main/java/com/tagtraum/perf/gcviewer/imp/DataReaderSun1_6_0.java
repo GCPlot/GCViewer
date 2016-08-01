@@ -210,7 +210,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading Sun / Oracle 1.4.x / 1.5.x / 1.6.x / 1.7.x / 1.8.x format...");
+        getLogger().info("Reading Sun / Oracle 1.4.x / 1.5.x / 1.6.x / 1.7.x / 1.8.x format...");
 
         try (LineNumberReader in = this.in) {
             GCModel model = createGCModel();
@@ -251,7 +251,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                         // -XX:PrintCmsStatistics -> filter text that the parser doesn't know
                         printCmsStatisticsIterationsMatcher.reset(line);
                         if (!printCmsStatisticsIterationsMatcher.matches()) {
-                            getLogger().severe("printCmsStatisticsIterationsMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
+                            getLogger().error("printCmsStatisticsIterationsMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
                             continue;
                         }
 
@@ -271,7 +271,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                     if (line.indexOf(PRINT_TENURING_DISTRIBUTION) > 0) {
                         printTenuringDistributionMatcher.reset(line);
                         if (!printTenuringDistributionMatcher.matches()) {
-                            getLogger().severe("printDistributionMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
+                            getLogger().error("printDistributionMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
                             continue;
                         }
 
@@ -302,7 +302,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                             // -XX:+PrintAdaptiveSizePolicy -XX:-UseAdaptiveSizePolicy
                             printAdaptiveSizePolicyMatcher.reset(line);
                             if (!printAdaptiveSizePolicyMatcher.matches()) {
-                                getLogger().severe("printAdaptiveSizePolicyMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
+                                getLogger().error("printAdaptiveSizePolicyMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
                                 continue;
                             }
 
@@ -316,7 +316,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                             // -XX:+PrintAdaptiveSizePolicy
                             adaptiveSizePolicyMatcher.reset(line);
                             if (!adaptiveSizePolicyMatcher.matches()) {
-                                getLogger().severe("adaptiveSizePolicyMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
+                                getLogger().error("adaptiveSizePolicyMatcher did not match for line " + in.getLineNumber() + ": '" + line + "'");
                                 continue;
                             }
                             beginningOfLine.addFirst(adaptiveSizePolicyMatcher.group(1));
@@ -400,15 +400,15 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                      model.add(gcEvent);
                 }
                 catch (Exception pe) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning(pe.toString());
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().log(Level.FINE, pe.getMessage(), pe);
+                    getLogger().warn(pe.toString());
+                    getLogger().debug(pe.getMessage(), pe);
                     beginningOfLine.clear();
                 }
             }
             return model;
         }
         finally {
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Done reading.");
+            getLogger().info("Done reading.");
         }
     }
 
@@ -482,7 +482,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
             }
         }
         else {
-            getLogger().warning("line should contain some known PrintFLSStatistics output, which it doesn't (" + line + ")");
+            getLogger().warn("line should contain some known PrintFLSStatistics output, which it doesn't ({})", line);
         }
 
         return isInFlsStatsBlock;
@@ -507,7 +507,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                    || ch == '.' || ch == ':' || ch == '+' || ch == '-'));
 
         if (index < 0) {
-            getLogger().warning("could not find name of event before " + pos);
+            getLogger().warn("could not find name of event before {}", pos);
             index = pos-1;
         }
 

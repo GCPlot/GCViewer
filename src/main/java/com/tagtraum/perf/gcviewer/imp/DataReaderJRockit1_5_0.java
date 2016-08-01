@@ -27,7 +27,7 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading JRockit 1.5 format...");
+        getLogger().info("Reading JRockit 1.5 format...");
         boolean gcSummary = false;
         try {
             GCModel model = new GCModel();
@@ -39,7 +39,7 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
             while ((line = in.readLine()) != null && shouldContinue()) {
                 final int memoryIndex = line.indexOf(MEMORY_MARKER);
                 if (memoryIndex == -1) {
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine("Ignoring line " + in.getLineNumber() + ". Missing \"[memory ]\" marker: " + line);
+                    getLogger().debug("Ignoring line {}. Missing \"[memory ]\" marker: {}", in.getLineNumber(), line);
                     continue;
                 }
                 if (line.endsWith(MEMORY_MARKER)) {
@@ -55,7 +55,7 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
                     // skip to position of last "]" occuring after memory marker "[memory ]"
                     int verboseTimestampIndex = line.lastIndexOf(']', line.length());
                     if (verboseTimestampIndex > startTimeIndex) {
-                        if (getLogger().isLoggable(Level.FINE)) getLogger().fine("Log entries have verbose timestamp");
+                        getLogger().debug("Log entries have verbose timestamp");
                         startTimeIndex = verboseTimestampIndex + 2; // skip "] "
                     }
                 }
@@ -65,30 +65,30 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
                     gcSummary = line.endsWith("Memory usage report");
                 }
                 if (gcSummary) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startTimeIndex));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.indexOf("Prefetch distance") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startTimeIndex));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.indexOf("GC mode") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startTimeIndex));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.indexOf("GC strategy") != -1) {
                     //JRockit dynamically changes GC strategy if using gcPrio, ignore these
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startTimeIndex));
+                    if (getLogger().isInfoEnabled()) getLogger().info(line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.indexOf("OutOfMemory") != -1) {
                     //If the application exits with OutOfMemory, it can get printed to GC log as well
                     //Log as SEVERE for user, but ignore for parsing
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("GC log contains OutOfMemory error: " + line.substring(startTimeIndex));
+                    if (getLogger().isWarnEnabled()) getLogger().warn("GC log contains OutOfMemory error: " + line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.toLowerCase().indexOf("heap size:") != -1) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info(line.substring(startTimeIndex));
+                    getLogger().info(line.substring(startTimeIndex));
                     final int nurserySizeStart = line.indexOf(NURSERY_SIZE);
                     final int nurserySizeEnd = line.indexOf('K', nurserySizeStart + NURSERY_SIZE.length());
                     if (nurserySizeStart != -1) {
@@ -98,13 +98,13 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
                 }
                 else if (line.substring(startTimeIndex).startsWith("<")) {
                     // ignore
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine(line.substring(startTimeIndex));
+                    if (getLogger().isDebugEnabled()) getLogger().debug(line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.indexOf("K->K") != -1){
                     // Ignore lines like this:
                     // -: GC K->K (K), ms
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine(line.substring(startTimeIndex));
+                    if (getLogger().isDebugEnabled()) getLogger().debug(line.substring(startTimeIndex));
                     continue;
                 }
                 else if (line.indexOf("->") == -1){
@@ -112,13 +112,13 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
                     // 1643328K->159027K (3145728K), 71.126 ms
                     // That is, no graph data means of no consequence
                     // Example: Thu Feb 21 15:09:22 2013][09368] Memory usage report
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().fine(line.substring(startTimeIndex));
+                    if (getLogger().isDebugEnabled()) getLogger().debug(line.substring(startTimeIndex));
                     continue;
                 }
 
                 final int colon = line.indexOf(':', startTimeIndex);
                 if (colon == -1) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("Malformed line (" + in.getLineNumber() + "). Missing colon after start time: " + line);
+                    if (getLogger().isWarnEnabled()) getLogger().warn("Malformed line (" + in.getLineNumber() + "). Missing colon after start time: " + line);
                     continue;
                 }
                 event = new GCEvent();
@@ -139,7 +139,7 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
                 while (!Character.isDigit(line.charAt(++typeEnd))) {}
                 final AbstractGCEvent.Type type = AbstractGCEvent.Type.lookup("jrockit." + line.substring(typeStart, typeEnd).trim());
                 if (type == null) {
-                    if (getLogger().isLoggable(Level.INFO)) getLogger().info("Failed to determine type: " + line.substring(startTimeIndex));
+                    if (getLogger().isWarnEnabled()) getLogger().info("Failed to determine type: " + line.substring(startTimeIndex));
                     continue;
                 }
                 event.setType(type);
@@ -191,7 +191,7 @@ public class DataReaderJRockit1_5_0 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading done.");
+            getLogger().info("Reading done.");
         }
     }
 

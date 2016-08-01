@@ -148,7 +148,7 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
 
     @Override
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading Sun 1.6.x / 1.7.x G1 format...");
+        getLogger().info("Reading Sun 1.6.x / 1.7.x G1 format...");
 
         try (LineNumberReader in = this.in) {
             GCModel model = createGCModel();
@@ -279,7 +279,7 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
                         // since jdk 1.8 full gc events in G1 have detailed heap sizing information on the next line
                         GCEvent fullGcEvent = (GCEvent) parseLine(line, parsePosition);
                         if (!in.markSupported()) {
-                            getLogger().warning("input stream does not support marking!");
+                            getLogger().warn("input stream does not support marking!");
                         }
                         else {
                             in.mark(200);
@@ -312,17 +312,15 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
                     }
                 }
                 catch (Exception pe) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().log(Level.WARNING, pe.toString());
-                    if (getLogger().isLoggable(Level.FINE)) getLogger().log(Level.FINE, pe.toString(), pe);
+                    getLogger().warn(pe.toString());
+                    getLogger().debug(pe.toString(), pe);
                 }
                 parsePosition.setIndex(0);
             }
             return model;
         }
         finally {
-            if (getLogger().isLoggable(Level.INFO)) {
-                getLogger().info("Done reading.");
-            }
+            getLogger().info("Done reading.");
         }
     }
 
@@ -419,8 +417,8 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
             // is currently the case for jdk 1.7.0_02 which changed the memory format
             // as of 1.7.0_25 for "GC cleanup" events, there seem to be rare cases, where this just happens
             // => don't log as warning; just log on debug level
-            if (getLogger().isLoggable(Level.FINE)) {
-                getLogger().fine("line " + in.getLineNumber() + ": no memory information found (" + event.toString() + ")");
+            if (getLogger().isDebugEnabled()) {
+                getLogger().debug("line " + in.getLineNumber() + ": no memory information found (" + event.toString() + ")");
             }
         }
         model.add(event);
@@ -587,7 +585,7 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
         String line = "";
 
         if (!in.markSupported()) {
-            getLogger().warning("input stream does not support marking!");
+            getLogger().warn("input stream does not support marking!");
         }
         else {
             in.mark(200);

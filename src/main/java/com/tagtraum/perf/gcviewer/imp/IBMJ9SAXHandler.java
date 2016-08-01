@@ -44,7 +44,7 @@ public class IBMJ9SAXHandler extends DefaultHandler {
         this.model = model;
     }
 
-    private Logger getLogger() {
+    private org.slf4j.Logger getLogger() {
         return gcResource.getLogger();
     }
     
@@ -153,7 +153,7 @@ public class IBMJ9SAXHandler extends DefaultHandler {
                         currentAF.afterTotalBytes = total;
                     } 
                     else {
-                        getLogger().warning("currentTenured is > 3!");
+                        getLogger().warn("currentTenured is > 3!");
                     }
                 }
                 else if ("soa".equals(qName)) {
@@ -180,7 +180,7 @@ public class IBMJ9SAXHandler extends DefaultHandler {
                         currentAF.afterSOATotalBytes = total;
                     }
                     else {
-                        getLogger().warning("currentTenured is > 3!");
+                        getLogger().warn("currentTenured is > 3!");
                     }
                 } 
                 else if ("loa".equals(qName)) {
@@ -207,7 +207,7 @@ public class IBMJ9SAXHandler extends DefaultHandler {
                         currentAF.afterLOATotalBytes = total;
                     } 
                     else {
-                        getLogger().warning("currentTenured is > 3!");
+                        getLogger().warn("currentTenured is > 3!");
                     }
                 }
             }
@@ -226,11 +226,11 @@ public class IBMJ9SAXHandler extends DefaultHandler {
             if (currentAF != null) {
                 GCEvent event = new GCEvent();
                 if (!"tenured".equals(currentAF.type)) {
-                    getLogger().warning("Unhandled AF type: " + currentAF.type);
+                    getLogger().warn("Unhandled AF type: {}", currentAF.type);
                 }
                 if (!"global".equals(currentAF.gcType)) {
-                    getLogger().warning("Different GC type: " + currentAF.gcType);
-                } 
+                    getLogger().warn("Different GC type: {}", currentAF.gcType);
+                }
                 else {
                     event.setType(AbstractGCEvent.Type.FULL_GC);
                 }
@@ -290,7 +290,7 @@ public class IBMJ9SAXHandler extends DefaultHandler {
                 currentAF = null;
             } 
             else {
-                getLogger().warning("Found end <af> tag with no begin tag");
+                getLogger().warn("Found end <af> tag with no begin tag");
             }
 
         }

@@ -25,7 +25,7 @@ public class DataReaderIBM1_3_0 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading IBM 1.3.0 format...");
+        getLogger().info("Reading IBM 1.3.0 format...");
         try {
             GCModel model = new GCModel();
             model.setFormat(GCModel.Format.IBM_VERBOSE_GC);
@@ -36,7 +36,7 @@ public class DataReaderIBM1_3_0 extends AbstractDataReader {
             while ((line = in.readLine()) != null && shouldContinue()) {
                 String trimmedLine = line.trim();
                 if ((!trimmedLine.equals("")) && (!trimmedLine.startsWith("<GC: ")) && (!(trimmedLine.startsWith("<") && trimmedLine.endsWith(">")))) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("Malformed line (" + in.getLineNumber() + "): " + line);
+                    getLogger().warn("Malformed line ({}): {}", in.getLineNumber(), line);
                     state = 0;
                 }
                 switch (state) {
@@ -87,7 +87,7 @@ public class DataReaderIBM1_3_0 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading done.");
+            getLogger().info("Reading done.");
         }
     }
 

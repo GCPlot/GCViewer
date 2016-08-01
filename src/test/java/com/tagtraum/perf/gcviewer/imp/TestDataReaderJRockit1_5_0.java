@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 import com.tagtraum.perf.gcviewer.UnittestHelper;
@@ -52,7 +53,7 @@ public class TestDataReaderJRockit1_5_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleJRockit1_5_12_gcpriopausetime.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader1_5(gcResource);
         GCModel model = reader.read();
@@ -138,7 +139,7 @@ public class TestDataReaderJRockit1_5_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.INFO);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         ByteArrayInputStream in = new ByteArrayInputStream(
                 ("[memory ][Thu Feb 21 15:06:38 2013][11844] 6.290-6.424: GC-malformed 3128161K->296406K (3145728K), sum of pauses 59.084 ms")

@@ -19,6 +19,7 @@ import com.tagtraum.perf.gcviewer.model.ConcurrentGCEvent;
 import com.tagtraum.perf.gcviewer.model.GCEvent;
 import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.model.GCResource;
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 public class TestDataReaderSun1_7_0G1 {
@@ -40,7 +41,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0-01_G1_young.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -58,7 +59,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0-02_G1_young.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -89,7 +90,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_02_G1_young_datestamp.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -111,7 +112,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_12PrintAdaptiveSizePolicy.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -135,7 +136,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_40PrintGCCause.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -158,7 +159,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_40PrintGCCause2.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -193,7 +194,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1_DateStamp_Detailed-mixedLine2.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -226,7 +227,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         InputStream in = new ByteArrayInputStream(
                 ("2012-07-26T14:58:54.045+0200: Total time for which application threads were stopped: 0.0078335 seconds" +
@@ -249,7 +250,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         InputStream in = new ByteArrayInputStream(
                 ("2012-07-26T15:24:21.845+0200: 3.100: [GC concurrent-root-region-scan-end, 0.0000680]" +
@@ -324,7 +325,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1TenuringDistribution.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -344,7 +345,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_02PrintApplicationTimeTenuringDistribution.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -390,7 +391,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1_PrintHeapAtGC_withConcurrent.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -415,7 +416,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_40PrintHeapAtGC.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -432,7 +433,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1AdaptiveSize_Reference.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -458,7 +459,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1PrintReferencePolicy.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -475,7 +476,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1_DetailsWoTimestamp.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -506,7 +507,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1_PauseWithComma.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -528,7 +529,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource(fileName);
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -559,7 +560,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0_51_G1_PrintApplicationTimeTenuringDistribution.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -589,7 +590,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1_AppStopped_TenuringDist_Ergonomics_comma.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -619,7 +620,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_7_0G1_MixedApplicationStopped.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -639,7 +640,7 @@ public class TestDataReaderSun1_7_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         InputStream in = new ByteArrayInputStream(
                 ("2014-08-03T13:33:50.932+0200: 0.992: [Full GC0.995: [SoftReference, 34 refs, 0.0000090 secs]0.995: [WeakReference, 0 refs, 0.0000016 secs]0.996: [FinalReference, 4 refs, 0.0000020 secs]0.996: [PhantomReference, 0 refs, 0.0000012 secs]0.996: [JNI Weak Reference, 0.0000016 secs] 128M->63M(128M), 0.0434091 secs]"

@@ -30,7 +30,7 @@ public class DataReaderSun1_3_1 extends AbstractDataReaderSun {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading Sun 1.3.1 format...");
+        getLogger().info("Reading Sun 1.3.1 format...");
         try {
             count = 0;
             GCModel model = new GCModel();
@@ -49,7 +49,7 @@ public class DataReaderSun1_3_1 extends AbstractDataReaderSun {
                         model.add(parseLine(line.toString(), null));
                     }
                     catch (ParseException e) {
-                        if (getLogger().isLoggable(Level.WARNING)) getLogger().log(Level.WARNING, e.getMessage(), e);
+                        getLogger().warn(e.getMessage(), e);
                         e.printStackTrace();
                     }
                     if (!lineStack.isEmpty()) {
@@ -68,7 +68,7 @@ public class DataReaderSun1_3_1 extends AbstractDataReaderSun {
             }
             catch (IOException ioe) {
             }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Done reading.");
+            getLogger().info("Done reading.");
         }
     }
 

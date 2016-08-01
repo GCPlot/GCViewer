@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 import com.tagtraum.perf.gcviewer.model.GCEvent;
@@ -39,7 +40,7 @@ public class TestDataReaderSun1_8_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_8_0G1_ConcurrentCycle.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -89,7 +90,7 @@ public class TestDataReaderSun1_8_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_8_0G1PrintGCCausePrintTenuringDistribution.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -104,7 +105,7 @@ public class TestDataReaderSun1_8_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_8_0G1PrintHeapAtGc.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -119,7 +120,7 @@ public class TestDataReaderSun1_8_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_8_0G1HumongousMixed.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -133,7 +134,7 @@ public class TestDataReaderSun1_8_0G1 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_8_0G1extended-remark.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();

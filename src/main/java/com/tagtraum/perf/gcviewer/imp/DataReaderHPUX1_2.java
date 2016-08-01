@@ -26,7 +26,7 @@ public class DataReaderHPUX1_2 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading HP-UX 1.2-1.4.0 format...");
+        getLogger().info("Reading HP-UX 1.2-1.4.0 format...");
         try {
             GCModel model = new GCModel();
             model.setFormat(GCModel.Format.SUN_X_LOG_GC);
@@ -35,11 +35,11 @@ public class DataReaderHPUX1_2 extends AbstractDataReader {
             while ((line = in.readLine()) != null && shouldContinue()) {
                 StringTokenizer st = new StringTokenizer(line, " ");
                 if (st.countTokens() != 20) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("Malformed line (" + in.getLineNumber() + "). Wrong number of tokens ("+st.countTokens()+"): " + line);
+                    getLogger().warn("Malformed line ({}). Wrong number of tokens ({}): {}", in.getLineNumber(), st.countTokens(), line);
                     continue;
                 }
                 if (!"<GC:".equals(st.nextToken())) {
-                    if (getLogger().isLoggable(Level.WARNING)) getLogger().warning("Malformed line (" + in.getLineNumber() + "). Expected \"<GC:\" in " + line);
+                    getLogger().warn("Malformed line ({}). Expected \"<GC:\" in {}", in.getLineNumber(), line);
                     continue;
                 }
                 event = new GCEvent();
@@ -154,7 +154,7 @@ public class DataReaderHPUX1_2 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading done.");
+            getLogger().info("Reading done.");
         }
     }
 

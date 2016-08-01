@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 import com.tagtraum.perf.gcviewer.UnittestHelper;
@@ -40,7 +41,7 @@ public class TestDataReaderJRockit1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleJRockit1_6_gc_mode_singleparcon.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -63,7 +64,7 @@ public class TestDataReaderJRockit1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleJRockit1_6_verbose_gc_mode_singleparcon.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         
@@ -102,7 +103,7 @@ public class TestDataReaderJRockit1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleJRockit1_6_33_gc_mode_genpar_verbosenursery.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         DataReader reader = getDataReader(gcResource);
         GCModel model = reader.read();
@@ -146,7 +147,7 @@ public class TestDataReaderJRockit1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.INFO);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         ByteArrayInputStream in = new ByteArrayInputStream(
                 ("[INFO ][memory ] [YC#1] 9.743-9.793: YC-malformed 294974KB->122557KB (524288KB), 0.050 s, sum of pauses 49.692 ms, longest pause 49.692 ms.")

@@ -126,9 +126,7 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
             return (int) Math.rint(memoryValue * 1024*1024);
         }
         else {
-            if (getLogger().isLoggable(Level.WARNING)) {
-                getLogger().warning("unknown memoryunit '" + memUnit + "' in line " + line);
-            }
+            getLogger().warn("unknown memoryunit '{}' in line {}", memUnit, line);
             return 1;
         }
     }
@@ -631,7 +629,7 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
         String line = "";
 
         if (!in.markSupported()) {
-            getLogger().warning("input stream does not support marking!");
+            getLogger().warn("input stream does not support marking!");
         }
         else {
             in.mark(200);
@@ -672,7 +670,7 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
     private void skipUntilEndOfDetail(final String line, final ParseInformation pos, Exception e) {
         skipUntilEndOfDetail(line, pos, 1);
 
-        if (getLogger().isLoggable(Level.FINE)) getLogger().fine("Skipping detail event because of " + e);
+        getLogger().debug("Skipping detail event because of {}", e);
     }
 
     /**

@@ -41,9 +41,9 @@ public class GCModelLoaderImpl extends SwingWorker<GCModel, Object> implements G
 			result = dataReaderFacade.loadModel(gcResource);			
 		}
 		catch (DataReaderException | RuntimeException e) {
-			Logger logger = gcResource.getLogger();
-			if (logger.isLoggable(Level.FINE)) {
-			    logger.log(Level.FINE, "Failed to load GCModel from " + gcResource.getResourceName(), e);
+			org.slf4j.Logger logger = gcResource.getLogger();
+			if (logger.isDebugEnabled()) {
+			    logger.debug("Failed to load GCModel from " + gcResource.getResourceName(), e);
 			}
 			throw e;
 		}
@@ -51,7 +51,7 @@ public class GCModelLoaderImpl extends SwingWorker<GCModel, Object> implements G
 	}
 
 	protected void done() {
-		Logger logger = gcResource.getLogger();
+		org.slf4j.Logger logger = gcResource.getLogger();
 
 		try {
 			gcResource.setModel(get());
@@ -59,11 +59,11 @@ public class GCModelLoaderImpl extends SwingWorker<GCModel, Object> implements G
             gcResource.getModel().printDetailedInformation();
 		} 
 		catch (InterruptedException e) {
-			logger.log(Level.FINE, "model get() interrupted", e);
+			logger.debug("model get() interrupted", e);
 		} 
 		catch (ExecutionException | RuntimeException e) {
-			if (logger.isLoggable(Level.WARNING))
-				logger.log(Level.WARNING, "Failed to create GCModel from " + gcResource.getResourceName(), e);			
+			if (logger.isWarnEnabled())
+				logger.warn("Failed to create GCModel from " + gcResource.getResourceName(), e);
 		}
 	}
 	

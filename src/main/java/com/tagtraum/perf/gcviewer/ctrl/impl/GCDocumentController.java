@@ -2,6 +2,7 @@ package com.tagtraum.perf.gcviewer.ctrl.impl;
 
 import com.tagtraum.perf.gcviewer.ctrl.GCModelLoader;
 import com.tagtraum.perf.gcviewer.log.TextAreaLogHandler;
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import com.tagtraum.perf.gcviewer.view.ChartPanelView;
 import com.tagtraum.perf.gcviewer.view.GCDocument;
 import com.tagtraum.perf.gcviewer.view.GCModelLoaderView;
@@ -10,6 +11,7 @@ import com.tagtraum.perf.gcviewer.view.ModelChartImpl;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.logging.Handler;
 import java.util.logging.Logger;
 
 /**
@@ -52,10 +54,11 @@ public class GCDocumentController implements PropertyChangeListener {
     }
     
     private void removeTextAreaLogHandler(GCModelLoader modelLoader) {
-        Logger logger = modelLoader.getGcResource().getLogger();
-        for (int i = logger.getHandlers().length - 1; i >= 0; --i) {
-            if (logger.getHandlers()[i] instanceof TextAreaLogHandler) {
-                logger.removeHandler(logger.getHandlers()[i]);
+        org.slf4j.Logger logger = modelLoader.getGcResource().getLogger();
+        Handler[] handlers = Slf4jUtil.getHandlers(logger);
+        for (int i = handlers.length - 1; i >= 0; --i) {
+            if (handlers[i] instanceof TextAreaLogHandler) {
+                Slf4jUtil.removeHandler(logger, handlers[i]);
             }
         }
     }

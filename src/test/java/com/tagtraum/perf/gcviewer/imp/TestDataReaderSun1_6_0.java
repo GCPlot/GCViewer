@@ -13,6 +13,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 
+import com.tagtraum.perf.gcviewer.util.Slf4jUtil;
 import org.junit.Test;
 
 import com.tagtraum.perf.gcviewer.UnittestHelper;
@@ -445,7 +446,7 @@ public class TestDataReaderSun1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0PrintHeapAtGC.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0(gcResource, in, GcLogType.SUN1_6);
@@ -628,7 +629,7 @@ public class TestDataReaderSun1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("SampleSun1_6_0CMSAdaptiveSizePolicy.txt");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         InputStream in = getInputStream(gcResource.getResourceName());
         DataReader reader = new DataReaderSun1_6_0(gcResource, in, GcLogType.SUN1_6);
@@ -647,7 +648,7 @@ public class TestDataReaderSun1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         ByteArrayInputStream in = new ByteArrayInputStream(
                 ("2012-04-18T14:48:31.855+0200: 29.592: [GC 29.592: [ASParNew: 52825K->6499K(59008K), 0.0268761 secs] 120805K->120749K(517760K), 0.0269605 secs] [Times: user=0.05 sys=0.00, real=0.03 secs]"
@@ -880,7 +881,7 @@ public class TestDataReaderSun1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
         
         ByteArrayInputStream in = new ByteArrayInputStream(
                 ("2269.664: [CMS-concurrent-sweep-start]"
@@ -904,7 +905,7 @@ public class TestDataReaderSun1_6_0 {
         TestLogHandler handler = new TestLogHandler();
         handler.setLevel(Level.WARNING);
         GCResource gcResource = new GCResource("byteArray");
-        gcResource.getLogger().addHandler(handler);
+        Slf4jUtil.addHandler(gcResource.getLogger(), handler);
 
         ByteArrayInputStream in = new ByteArrayInputStream(
                 ("163914,315: [GC 163914,316: [ParNew (promotion failed): 717051K->680031K(755008K), 2,6660558 secs]163916,982: [CMS163928,452: [CMS-concurrent-sweep: 20,622/86,301 secs] [Times: user=380,61 sys=2,63, real=86,30 secs]"

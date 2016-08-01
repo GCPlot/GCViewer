@@ -44,7 +44,7 @@ public class DataReaderIBM_J9_5_0 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading IBM J9 5.0 format...");
+        getLogger().info("Reading IBM J9 5.0 format...");
         try (InputStream inStream = this.inputStream){
             final GCModel model = new GCModel();
             model.setFormat(GCModel.Format.IBM_VERBOSE_GC);
@@ -80,7 +80,7 @@ public class DataReaderIBM_J9_5_0 extends AbstractDataReader {
 
         }
         finally {
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Done reading.");
+            getLogger().info("Done reading.");
         }
     }
 }

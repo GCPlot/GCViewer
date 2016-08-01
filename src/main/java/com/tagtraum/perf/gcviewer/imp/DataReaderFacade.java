@@ -52,7 +52,7 @@ public class DataReaderFacade {
 
         DataReaderException dataReaderException = new DataReaderException();
         GCModel model = null;
-        Logger logger = gcResource.getLogger();
+        org.slf4j.Logger logger = gcResource.getLogger();
 
         try {
             logger.info("GCViewer version " + BuildInfoReader.getVersion()
@@ -61,7 +61,7 @@ public class DataReaderFacade {
         }
         catch (RuntimeException | IOException e) {
             dataReaderException.initCause(e);
-            logger.warning(LocalisationHelper.getString("fileopen_dialog_read_file_failed")
+            logger.warn(LocalisationHelper.getString("fileopen_dialog_read_file_failed")
                     + "\n" + e.toString() + " " + e.getLocalizedMessage());
         }
 

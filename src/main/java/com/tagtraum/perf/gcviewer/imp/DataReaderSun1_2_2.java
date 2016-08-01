@@ -24,7 +24,7 @@ public class DataReaderSun1_2_2 extends AbstractDataReader {
     }
 
     public GCModel read() throws IOException {
-        if (getLogger().isLoggable(Level.INFO)) getLogger().info("Reading Sun 1.2.2 format...");
+        getLogger().info("Reading Sun 1.2.2 format...");
         try {
             GCModel model = new GCModel();
             model.setFormat(GCModel.Format.SUN_1_2_2VERBOSE_GC);
@@ -109,7 +109,7 @@ public class DataReaderSun1_2_2 extends AbstractDataReader {
                 }
                 catch (IOException ioe) {
                 }
-            if (getLogger().isLoggable(Level.INFO)) getLogger().info("Done reading.");
+            getLogger().info("Done reading.");
         }
     }
 

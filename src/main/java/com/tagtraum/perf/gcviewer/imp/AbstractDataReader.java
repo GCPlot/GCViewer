@@ -5,8 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.tagtraum.perf.gcviewer.model.GCModel;
 import com.tagtraum.perf.gcviewer.model.GCResource;
@@ -39,7 +37,7 @@ public abstract class AbstractDataReader implements DataReader {
      *
      * @return thread specific logger
      */
-    protected Logger getLogger() {
+    protected org.slf4j.Logger getLogger() {
         return gcResource.getLogger();
     }
 
@@ -51,9 +49,7 @@ public abstract class AbstractDataReader implements DataReader {
      * @return <code>true</code> as long as read was not cancelled
      */
     protected boolean shouldContinue() {
-        if (getLogger().isLoggable(Level.FINE)) {
-            getLogger().fine(gcResource.getResourceName() + " read cancelled");
-        }
+        getLogger().debug("{} read cancelled", gcResource.getResourceName());
         return !gcResource.isReadCancelled();
     }
 }
