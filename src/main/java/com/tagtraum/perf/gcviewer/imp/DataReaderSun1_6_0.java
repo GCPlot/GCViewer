@@ -90,6 +90,12 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
         EXCLUDE_STRINGS.add("Max   Chunk Size:"); // -XX:+PrintFLSStatistics=1
         EXCLUDE_STRINGS.add("Number of Blocks:"); // -XX:+PrintFLSStatistics=1
         EXCLUDE_STRINGS.add("Av.  Block  Size:"); // -XX:+PrintFLSStatistics=1
+        EXCLUDE_STRINGS.add("metadata initialized");
+        EXCLUDE_STRINGS.add("cms_time_since_end");
+        EXCLUDE_STRINGS.add("cms_time_since_begin");
+        EXCLUDE_STRINGS.add("initiatingOccupancy");
+        EXCLUDE_STRINGS.add("occupancy");
+        EXCLUDE_STRINGS.add("initiatingOccupancy");
         EXCLUDE_STRINGS.add("Tree      Height:"); // -XX:+PrintFLSStatistics=1
         EXCLUDE_STRINGS.add(BEFORE_GC); // -XX:+PrintFLSStatistics=1
         EXCLUDE_STRINGS.add(AFTER_GC); // -XX:+PrintFLSStatistics=1

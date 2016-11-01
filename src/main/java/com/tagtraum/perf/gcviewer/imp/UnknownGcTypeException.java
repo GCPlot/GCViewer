@@ -22,5 +22,8 @@ public class UnknownGcTypeException extends ParseException {
 		this(gcType, line, null);
 	}
 
-
+    @Override
+    public StackTraceElement[] getStackTrace() {
+        return new StackTraceElement[0];
+    }
 }
