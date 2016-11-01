@@ -93,6 +93,12 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
         EXCLUDE_STRINGS.add("metadata initialized");
         EXCLUDE_STRINGS.add("cms_time_since_end");
         EXCLUDE_STRINGS.add("cms_time_since_begin");
+        EXCLUDE_STRINGS.add("class unloading");
+        EXCLUDE_STRINGS.add("Rescan (parallel)");
+        EXCLUDE_STRINGS.add("weak refs processing");
+        EXCLUDE_STRINGS.add("scrub symbol table");
+        EXCLUDE_STRINGS.add("YG occupancy");
+        EXCLUDE_STRINGS.add("scrub string table");
         EXCLUDE_STRINGS.add("initiatingOccupancy");
         EXCLUDE_STRINGS.add("occupancy");
         EXCLUDE_STRINGS.add("initiatingOccupancy");

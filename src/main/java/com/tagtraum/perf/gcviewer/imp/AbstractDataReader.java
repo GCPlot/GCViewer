@@ -45,7 +45,7 @@ public abstract class AbstractDataReader implements DataReader {
      * @return <code>true</code> as long as read was not cancelled
      */
     protected boolean shouldContinue() {
-        getLogger().debug("{} read cancelled", gcResource.getResourceName());
+        //getLogger().debug("{} read cancelled", gcResource.getResourceName());
         return !gcResource.isReadCancelled();
     }
 }
