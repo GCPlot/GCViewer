@@ -35,6 +35,10 @@ public abstract class AbstractGCEvent<T extends AbstractGCEvent<T>> implements S
         return details.iterator();
     }
 
+    public boolean isGCEvent() {
+        return false;
+    }
+
     public void add(T detail) {
         // most events have only one detail event
         if (details == null) {

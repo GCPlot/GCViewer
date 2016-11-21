@@ -9,15 +9,6 @@ package com.tagtraum.perf.gcviewer.model;
  * <p>created on: 26.10.2011</p>
  */
 public class G1GcEvent extends GCEvent {
-    private GCEvent lastYoung;
-
-    public GCEvent getLastYoung() {
-        return lastYoung;
-    }
-
-    public void setLastYoung(GCEvent lastYoung) {
-        this.lastYoung = lastYoung;
-    }
 
     @Override
     public String getTypeAsString() {

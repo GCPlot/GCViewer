@@ -24,6 +24,16 @@ public class GCEvent extends AbstractGCEvent<GCEvent> {
     private GCEvent young;
     private GCEvent tenured;
     private GCEvent perm;
+
+    private GCEvent lastYoung;
+
+    public GCEvent getLastYoung() {
+        return lastYoung;
+    }
+
+    public void setLastYoung(GCEvent lastYoung) {
+        this.lastYoung = lastYoung;
+    }
     
     public GCEvent() {
     }
@@ -57,6 +67,10 @@ public class GCEvent extends AbstractGCEvent<GCEvent> {
             case OTHER:
                 break;
         }
+    }
+
+    public boolean isGCEvent() {
+        return true;
     }
     
     /**
