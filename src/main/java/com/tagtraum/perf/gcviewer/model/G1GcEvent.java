@@ -14,7 +14,7 @@ public class G1GcEvent extends GCEvent {
     public GCEvent getLastYoung() {
         return lastYoung;
     }
-    
+
     public void setLastYoung(GCEvent lastYoung) {
         this.lastYoung = lastYoung;
     }
