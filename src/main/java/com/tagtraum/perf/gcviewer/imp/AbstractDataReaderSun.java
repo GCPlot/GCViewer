@@ -731,6 +731,15 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
         return begin;
     }
 
+    protected void fetchTimes(String line, ParseInformation pos, AbstractGCEvent<?> ae) throws ParseException {
+        double[] times = parseTimes(line, pos);
+        if (times != null) {
+            ae.setUser(times[0]);
+            ae.setSys(times[1]);
+            ae.setReal(times[2]);
+        }
+    }
+
     private void skipBlanksAndCommas(String line, ParseInformation parseInfo) throws ParseException {
         int begin = parseInfo.getIndex();
         while ((line.charAt(begin) == ' ' || line.charAt(begin) == ',') && begin+1 < line.length()) {

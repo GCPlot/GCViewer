@@ -157,6 +157,13 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
                     continue;
                 }
                 try {
+                    if (line.trim().startsWith(TIMES) && model.size() > 0) {
+                        AbstractGCEvent<?> lastEvent = model.get(model.size() - 1);
+                        if (lastEvent != null) {
+                            fetchTimes(line, parsePosition, lastEvent);
+                        }
+                        continue;
+                    }
                     if (filter(line, EXCLUDE_STRINGS, APPLICATION_TIME)) continue;
 
                     // remove G1 ergonomics pieces
@@ -525,12 +532,7 @@ public class DataReaderSun1_6_0G1 extends AbstractDataReaderSun {
                     event.setPause(parsePause(line, pos));
                 }
             }
-            double[] times = parseTimes(line, pos);
-            if (times != null) {
-                ae.setUser(times[0]);
-                ae.setSys(times[1]);
-                ae.setReal(times[2]);
-            }
+            fetchTimes(line, pos, ae);
             return ae;
         }
         catch (RuntimeException rte) {

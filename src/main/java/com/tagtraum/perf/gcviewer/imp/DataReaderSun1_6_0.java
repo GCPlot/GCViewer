@@ -595,12 +595,7 @@ public class DataReaderSun1_6_0 extends AbstractDataReaderSun {
                     event.setPause(parsePause(line, pos));
                 }
             }
-            double[] times = parseTimes(line, pos);
-            if (times != null) {
-                ae.setUser(times[0]);
-                ae.setSys(times[1]);
-                ae.setReal(times[2]);
-            }
+            fetchTimes(line, pos, ae);
             return ae;
         }
         catch (RuntimeException rte) {
