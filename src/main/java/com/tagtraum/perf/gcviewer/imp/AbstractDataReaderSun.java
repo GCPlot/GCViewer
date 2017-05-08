@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
  * @author <a href="mailto:gcviewer@gmx.ch">Joerg Wuethrich</a>
  */
 public abstract class AbstractDataReaderSun extends AbstractDataReader {
-
+    public static final Pattern TIMES_PATTERN = Pattern.compile("\\[Times:\\s+user=(?<user>[-+]?[0-9]*\\.?[0-9]+)\\s+sys=(?<sys>[-+]?[0-9]*\\.?[0-9]+)\\,?\\sreal=(?<real>[-+]?[0-9]*\\.?[0-9]+) (?<msr>secs)\\]");
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     private static final int LENGTH_OF_DATESTAMP = 29;
 
@@ -283,6 +283,19 @@ public abstract class AbstractDataReaderSun extends AbstractDataReader {
         pos.setIndex(line.indexOf(']', end) + 1);
 
         return pause;
+    }
+
+    protected double[] parseTimes(String line, ParseInformation pos) throws ParseException {
+        Matcher m = TIMES_PATTERN.matcher(line);
+        if (m.find() && m.group("msr").equals("secs")) {
+            double[] times = new double[3];
+            times[0] = Double.parseDouble(m.group("user"));
+            times[1] = Double.parseDouble(m.group("sys"));
+            times[2] = Double.parseDouble(m.group("real"));
+            return times;
+        } else {
+            return null;
+        }
     }
 
     protected boolean hasNextDetail(String line, ParseInformation pos) throws ParseException {

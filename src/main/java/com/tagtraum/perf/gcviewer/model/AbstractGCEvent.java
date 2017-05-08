@@ -3,6 +3,7 @@ package com.tagtraum.perf.gcviewer.model;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * The abstract gc event is the base class for all types of events. All sorts of general
@@ -21,6 +22,9 @@ public abstract class AbstractGCEvent<T extends AbstractGCEvent<T>> implements S
     private Generation generation;
     protected List<T> details;
     private double pause;
+    private double user = Double.NaN;
+    private double sys = Double.NaN;
+    private double real = Double.NaN;
 
     public boolean isG1Event() {
         return false;
@@ -251,6 +255,30 @@ public abstract class AbstractGCEvent<T extends AbstractGCEvent<T>> implements S
 
     public void setPause(double pause) {
         this.pause = pause;
+    }
+
+    public double getUser() {
+        return user;
+    }
+
+    public void setUser(double user) {
+        this.user = user;
+    }
+
+    public double getSys() {
+        return sys;
+    }
+
+    public void setSys(double sys) {
+        this.sys = sys;
+    }
+
+    public double getReal() {
+        return real;
+    }
+
+    public void setReal(double real) {
+        this.real = real;
     }
 
     /**
